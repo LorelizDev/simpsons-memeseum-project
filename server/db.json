@@ -1,1 +1,57 @@
-{}
+{
+  "memes":[
+
+{
+    "id": "1",
+    "name": "Meme1",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725369946/Meme1_gis7ul.jpg",
+    "createDate": "03/09/2024",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "2",
+    "name": "Meme2",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "3",
+    "name": "Meme3",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "4",
+    "name": "Meme4",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "5",
+    "name": "Meme5",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "6",
+    "name": "Meme6",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "7",
+    "name": "Meme7",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  },
+  {
+    "id": "8",
+    "name": "Meme8",
+    "image": "https://ENLACE-DE-CLOUDINARY",
+    "description": "Este es un producto de ejemplo con una descripción breve."
+  }
+
+
+]
+}
+  
