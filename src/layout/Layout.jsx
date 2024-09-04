@@ -8,6 +8,7 @@ const Layout = () => {
         Mi NavBar
       </nav>
       <Outlet />
+      
       <footer>
         Mi Footer
       </footer>
