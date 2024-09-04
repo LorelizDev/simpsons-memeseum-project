@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './MemeView.css';
 import { fetchMemes } from '../services/services';
 
 // Función para seleccionar el meme con id=1
@@ -37,18 +36,25 @@ const MemeView = () => {
   };
 
   return (
-    <div className="container">
+    
+    <div className="flex flex-col items-center justify-center h-screen">
       {!showLargeImage && !selectedMeme ? (
         <img
           src="https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725369946/Meme1_gis7ul.jpg" // URL de la imagen inicial
           alt="Meme"
-          className="meme-image"
+          className="w-48 h-48 object-cover cursor-pointer"
           onClick={handleClick}
-          style={{ cursor: 'pointer' }}
-        />
+        /> 
       ) : (
-        <div className="meme-container" onClick={handleClick}>
-          <img src={selectedMeme?.image} alt={selectedMeme?.name} />
+        <div
+          // className="w-80 h-80 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+          onClick={handleClick}
+        >
+          <img
+            src={selectedMeme?.image}
+            alt={selectedMeme?.name}
+            className="w-120 h-120 object-cover"
+          />
         </div>
       )}
     </div>
