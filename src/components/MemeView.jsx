@@ -1,8 +1,10 @@
+// MemeView.js
 import React, { useState, useEffect } from 'react';
-import { fetchMemes } from '../services/services';
-import initialImage from '../assets/images/bart.png'; // Importa tu imagen inicial aquí
+import { getMemes } from '../services/services';
+import initialImage from '../assets/images/bart.png';
+import AudioPlayer from './AudioPlayer';
 
-// Función para seleccionar el meme con id=1
+// Función para seleccionar el meme por id
 const selectMemeById = (memes, id) => memes.find((item) => item.id === id);
 
 const MemeView = () => {
@@ -13,7 +15,7 @@ const MemeView = () => {
   // Obtener datos de db.json cuando el componente se monta
   useEffect(() => {
     const loadMemes = async () => {
-      const memes = await fetchMemes();
+      const memes = await getMemes();
       setData(memes);
     };
 
@@ -21,42 +23,49 @@ const MemeView = () => {
   }, []);
 
   // Manejar el click para mostrar/ocultar la imagen grande
-  const handleClick = () => {
-    if (selectedMeme) {
+  const handleClick = (meme) => {
+    if (selectedMeme && selectedMeme.id === meme.id) {
       setSelectedMeme(null);
       setShowLargeImage(false);
     } else {
-      // Selecciona el meme con id=1 para mostrar la imagen de Cloudinary
-      const meme = selectMemeById(data, "1");
-      if (meme) {
-        setSelectedMeme(meme);  // Muestra la imagen de Cloudinary al hacer clic
-        setShowLargeImage(true);
-      } else {
-        alert('Meme no encontrado.');
-      }
+      setSelectedMeme(meme);
+      setShowLargeImage(true);
     }
   };
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen">
-      {!showLargeImage && !selectedMeme ? (
-        <div className="absolute left-4 top-4"> {/* Posiciona la imagen hacia la izquierda y arriba */}
+      {/* Reproductor de música */}
+      <AudioPlayer />
+
+      {/* Mostrar miniaturas de los memes */}
+      <div className="absolute left-4 top-4 flex space-x-2">
+        <img
+          src={initialImage}
+          alt="Cuadro Inicial"
+          className="w-48 h-48 object-cover cursor-pointer"
+          onClick={() => handleClick(selectMemeById(data, '1'))}
+        />
+        {data.slice(1, 8).map((meme) => (
           <img
-            src={initialImage} // Cambia la URL de la imagen inicial
-            alt="Meme Inicial"
-            className="w-48 h-48 object-cover cursor-pointer"
-            onClick={handleClick}
+            key={meme.id}
+            src={meme.thumbnail}
+            alt={meme.name}
+            className="w-24 h-24 object-cover cursor-pointer"
+            onClick={() => handleClick(meme)}
           />
-        </div>
-      ) : (
+        ))}
+      </div>
+
+      {/* Mostrar imagen grande al hacer clic en una miniatura */}
+      {showLargeImage && selectedMeme && (
         <div
-          // Esto es por si la imagen está en un lado y quiero que se abra en el centro
-          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-          onClick={handleClick}
+          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer"
+          onClick={() => handleClick(selectedMeme)}
         >
           <img
-            src={selectedMeme?.image} // Muestra la imagen de Cloudinary
-            alt={selectedMeme?.name}
+            src={selectedMeme.image}
+            alt={selectedMeme.name}
             className="w-120 h-120 object-cover"
           />
         </div>
@@ -66,6 +75,8 @@ const MemeView = () => {
 };
 
 export default MemeView;
+
+
 
 
 
