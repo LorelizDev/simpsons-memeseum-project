@@ -11,43 +11,43 @@
   {
     "id": "2",
     "name": "Meme2",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609298/meme2_pxfc2v.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "3",
     "name": "Meme3",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609296/meme4_akej2f.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "4",
     "name": "Meme4",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609296/meme6_r5tfya.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "5",
     "name": "Meme5",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609295/meme7_e3elnq.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "6",
     "name": "Meme6",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609569/meme8_trvqcb.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "7",
     "name": "Meme7",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609296/meme5_jzdsce.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "8",
     "name": "Meme8",
-    "image": "https://ENLACE-DE-CLOUDINARY",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725609297/meme3_hdihbb.jpg",
     "description": "Este es un producto de ejemplo con una descripción breve."
   }
 
