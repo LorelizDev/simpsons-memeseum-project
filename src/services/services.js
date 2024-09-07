@@ -12,3 +12,19 @@ export const getMemes = async () => {
     return [];
   }
 };
+
+// POST
+export const createMeme = async () => {
+  try {
+    const response = await axios.post(URL_API);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
+};
+
+
+//PUT
+
+//DELETE
