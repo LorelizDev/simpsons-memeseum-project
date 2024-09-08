@@ -1,4 +1,3 @@
-// MemeView.js
 import React, { useState, useEffect } from 'react';
 import { getMemes } from '../services/services';
 import initialImage1 from '../assets/images/cuadro11.png';
@@ -65,7 +64,7 @@ const MemeView = () => {
             key={initialImage.id}
             src={initialImage.src}
             alt={`Cuadro Inicial ${initialImage.id}`}
-            className="w-56 h-56 object-cover cursor-pointer"
+            className="w-56 h-56 object-cover cursor-pointer transition-transform duration-300 hover:brightness-110"
             onClick={() => handleClick(selectMemeById(data, initialImage.id))}
           />
         ))}
@@ -76,7 +75,7 @@ const MemeView = () => {
             key={meme.id}
             src={meme.thumbnail}
             alt={meme.name}
-            className="w-24 h-24 object-cover cursor-pointer"
+            className="w-24 h-24 object-cover cursor-pointer transition-transform duration-300 hover:brightness-110"
             onClick={() => handleClick(meme)}
           />
         ))}
@@ -100,6 +99,7 @@ const MemeView = () => {
 };
 
 export default MemeView;
+
 
 
 
