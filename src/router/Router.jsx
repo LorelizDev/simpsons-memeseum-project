@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import CreateMeme from "../pages/CreateMeme";
 import FullGallery from "../pages/FullGallery";
+import Gallery from "../pages/Gallery";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: 'gallery',  // Nueva ruta para la galería
         element: <FullGallery />
+      },
+      {
+        path: 'main-gallery',  // Nueva ruta para la galería
+        element: <Gallery />
       }
     ]
   }
