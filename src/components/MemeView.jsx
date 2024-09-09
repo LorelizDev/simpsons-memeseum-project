@@ -10,14 +10,14 @@ import initialImage7 from '../assets/images/cuadro7.png';
 import initialImage8 from '../assets/images/cuadro88.png';
 import AudioPlayer from './AudioPlayer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 // Función para seleccionar el meme por id
 const selectMemeById = (memes, id) => memes.find((item) => item.id === id);
 
 const MemeView = () => {
   const [data, setData] = useState([]);
-  const [selectedMeme, setSelectedMeme] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [showLargeImage, setShowLargeImage] = useState(false);
 
   // Array de imágenes iniciales
@@ -42,60 +42,95 @@ const MemeView = () => {
     loadMemes();
   }, []);
 
-  // Manejar el click para mostrar/ocultar la imagen grande
-  const handleClick = (meme) => {
-    if (selectedMeme && selectedMeme.id === meme.id) {
-      setSelectedMeme(null);
-      setShowLargeImage(false);
-    } else {
-      setSelectedMeme(meme);
-      setShowLargeImage(true);
-    }
+  // Manejar el click para mostrar la imagen grande
+  const handleClick = (index) => {
+    setSelectedIndex(index);
+    setShowLargeImage(true);
   };
+
+  // Mover a la siguiente imagen
+  const handleNext = (e) => {
+    e.stopPropagation(); // Evita cerrar la imagen grande al hacer clic en las flechas
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
+  };
+
+  // Mover a la imagen anterior
+  const handlePrev = (e) => {
+    e.stopPropagation(); // Evita cerrar la imagen grande al hacer clic en las flechas
+    setSelectedIndex((prevIndex) => (prevIndex - 1 + initialImages.length) % initialImages.length);
+  };
+
+  // Cerrar la imagen grande
+  const handleClose = () => {
+    setShowLargeImage(false);
+    setSelectedIndex(null);
+  };
+
+  const currentImage = initialImages[selectedIndex];
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen">
-      
       <AudioPlayer />
 
       {/* Fondo borroso cuando se muestra la imagen grande */}
       {showLargeImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"
+          onClick={handleClose} // Cerrar al hacer clic en el fondo
+        ></div>
       )}
 
       {/* Mostrar miniaturas de los memes */}
       <div className="absolute left-4 top-4 flex space-x-2">
         {/* Renderizar las imágenes iniciales */}
-        {initialImages.map((initialImage) => (
+        {initialImages.map((initialImage, index) => (
           <div key={initialImage.id} className="relative group">
             <img
               src={initialImage.src}
               alt={`Cuadro Inicial ${initialImage.id}`}
-              className="w-56 h-56 object-cover cursor-pointer transition-transform duration-300 group-hover:brightness-110"
-              onClick={() => handleClick(selectMemeById(data, initialImage.id))}
+              className="w-56 h-56 object-cover cursor-pointer transition-transform duration-300 group-hover:brightness-110 group-hover:scale-105" // Añadido scale-105 para agrandar
+              onClick={() => handleClick(index)}
             />
           </div>
         ))}
       </div>
 
       {/* Mostrar imagen grande al hacer clic en una miniatura */}
-      {showLargeImage && selectedMeme && (
+      {showLargeImage && currentImage && (
         <div
-          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
-          onClick={() => handleClick(selectedMeme)}
+          className="fixed inset-0 flex items-center justify-center z-20"
+          onClick={handleClose} // Cerrar al hacer clic en cualquier parte del contenedor
         >
-          <img
-            src={selectedMeme.image}
-            alt={selectedMeme.name}
-            className="w-120 h-120 object-cover"
-          />
-          {/* Iconos de papelera y lápiz */}
-          <div className="absolute top-4 right-4 flex space-x-4 z-30">
-            <button className="text-red-400 bg-black bg-opacity-50 p-2 rounded-full hover:text-red-800 transition">
-              <FontAwesomeIcon icon={faTrash} />
+          <div className="relative">
+            <img
+              src={currentImage.src}
+              alt={`Imagen Grande ${currentImage.id}`}
+              className="w-120 h-120 object-cover cursor-pointer" // Cursor pointer para la imagen grande
+              onClick={handleClose} // Cerrar al hacer clic en la imagen
+            />
+
+            {/* Iconos de papelera y lápiz */}
+            <div className="absolute top-4 right-4 flex space-x-4 z-30">
+              <button className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition">
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+              <button className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition">
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+            </div>
+
+            {/* Flechas de navegación */}
+            <button
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
+              onClick={handlePrev}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-            <button className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition">
-              <FontAwesomeIcon icon={faEdit} />
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
+              onClick={handleNext}
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>
@@ -105,6 +140,7 @@ const MemeView = () => {
 };
 
 export default MemeView;
+
 
 
 
