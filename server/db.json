@@ -5,49 +5,56 @@
     "id": "1",
     "name": "Meme1",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725624549/cuadro2_ub7kue.png",
-    "createDate": "03/09/2024",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "2",
     "name": "Meme2",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725624986/meme16_at69kw.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "3",
     "name": "Meme3",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627716/cuadro3_vht9zu.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "4",
     "name": "Meme4",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725624672/cuadro4_wg83vt.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "5",
     "name": "Meme5",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725625260/cuadro5_tg1bm8.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "6",
     "name": "Meme6",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627716/cuardo6_dotvya.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "7",
     "name": "Meme7",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627717/cuadro7_wbs022.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "8",
     "name": "Meme8",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627717/cuadro8_shbbm0.png",
+    "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   }
 
