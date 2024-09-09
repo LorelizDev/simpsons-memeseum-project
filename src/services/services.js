@@ -16,7 +16,7 @@ export const getMemes = async () => {
 // REQUEST DELETE
  // Función para eliminar un meme por ID
  const deleteMeme = async (id) => {
-  if (window.confirm('¿Estás seguro de que quieres eliminar este meme?')) {
+  if (confirm('¿Estás seguro de que quieres eliminar este meme?')) {
     try {
       // Hacemos una solicitud DELETE a la API
       await axios.delete(`${URL_API}/${id}`);
