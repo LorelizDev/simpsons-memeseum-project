@@ -9,6 +9,8 @@ import initialImage6 from '../assets/images/cuadro6.png';
 import initialImage7 from '../assets/images/cuadro7.png';
 import initialImage8 from '../assets/images/cuadro88.png';
 import AudioPlayer from './AudioPlayer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 // Función para seleccionar el meme por id
 const selectMemeById = (memes, id) => memes.find((item) => item.id === id);
@@ -56,26 +58,30 @@ const MemeView = () => {
       
       <AudioPlayer />
 
+      {/* Fondo borroso cuando se muestra la imagen grande */}
+      {showLargeImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"></div>
+      )}
+
       {/* Mostrar miniaturas de los memes */}
       <div className="absolute left-4 top-4 flex space-x-2">
         {/* Renderizar las imágenes iniciales */}
         {initialImages.map((initialImage) => (
-          <img
-            key={initialImage.id}
-            src={initialImage.src}
-            alt={`Cuadro Inicial ${initialImage.id}`}
-            className="w-56 h-56 object-cover cursor-pointer transition-transform duration-300 hover:brightness-110"
-            onClick={() => handleClick(selectMemeById(data, initialImage.id))}
-          />
+          <div key={initialImage.id} className="relative group">
+            <img
+              src={initialImage.src}
+              alt={`Cuadro Inicial ${initialImage.id}`}
+              className="w-56 h-56 object-cover cursor-pointer transition-transform duration-300 group-hover:brightness-110"
+              onClick={() => handleClick(selectMemeById(data, initialImage.id))}
+            />
+          </div>
         ))}
-
-       
       </div>
 
       {/* Mostrar imagen grande al hacer clic en una miniatura */}
       {showLargeImage && selectedMeme && (
         <div
-          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer"
+          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
           onClick={() => handleClick(selectedMeme)}
         >
           <img
@@ -83,6 +89,15 @@ const MemeView = () => {
             alt={selectedMeme.name}
             className="w-120 h-120 object-cover"
           />
+          {/* Iconos de papelera y lápiz */}
+          <div className="absolute top-4 right-4 flex space-x-4 z-30">
+            <button className="text-red-400 bg-black bg-opacity-50 p-2 rounded-full hover:text-red-800 transition">
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+            <button className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition">
+              <FontAwesomeIcon icon={faEdit} />
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -90,6 +105,7 @@ const MemeView = () => {
 };
 
 export default MemeView;
+
 
 
 

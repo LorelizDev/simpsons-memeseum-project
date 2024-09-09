@@ -4,7 +4,7 @@ import MemeView from '../components/MemeView'
 
 const Home = () => {
   return (
-    <div>
+    <div >
       <h1>Hola, soy Home👋</h1>
       <MemeView />
     </div>
