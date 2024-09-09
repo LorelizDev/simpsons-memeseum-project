@@ -1,17 +1,14 @@
-// CRUD
+import axios from 'axios';
+const URL_API = "http://localhost:3000/memes"
 
 
 // GET
-export const fetchMemes = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/memes');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return await response.json();
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
-    }
-  };
-  
+export const getMemes = async () => {
+  try {
+    const response = await axios.get(URL_API);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
+};
