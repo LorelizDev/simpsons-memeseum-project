@@ -1,5 +1,4 @@
 import React from 'react';
-import MemeView from '../components/MemeView';
 import S1Image from '../assets/images/S1.png'; // Importa la imagen
 
 const Home = () => {
