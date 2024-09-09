@@ -69,16 +69,7 @@ const MemeView = () => {
           />
         ))}
 
-        {/* Renderizar los memes adicionales si hay más de 8 */}
-        {data.slice(8).map((meme) => (
-          <img
-            key={meme.id}
-            src={meme.thumbnail}
-            alt={meme.name}
-            className="w-24 h-24 object-cover cursor-pointer transition-transform duration-300 hover:brightness-110"
-            onClick={() => handleClick(meme)}
-          />
-        ))}
+       
       </div>
 
       {/* Mostrar imagen grande al hacer clic en una miniatura */}
