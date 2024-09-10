@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import ButtonIcon from './ButtonIcon';
 
 const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
   if (!currentImage) return null;
@@ -27,18 +28,6 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
             onClick={(e) => e.stopPropagation()}
           />
 
-          {/* Iconos de papelera y lápiz */}
-          <div className="absolute top-4 right-4 flex space-x-4 z-30">
-            <button
-              className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
-            
-            >
-              <FontAwesomeIcon icon={faTrash} />
-            </button>
-            <button className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition">
-              <FontAwesomeIcon icon={faEdit} />
-            </button>
-          </div>
 
           {/* Flechas de navegación */}
           <button

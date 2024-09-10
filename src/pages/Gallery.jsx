@@ -10,6 +10,7 @@ import initialImage7 from '../assets/images/cuadro7.png';
 import initialImage8 from '../assets/images/cuadro8.png';
 import S1 from '../assets/images/S1.png';
 
+
 import MemeView from '../components/MemeView';
 
 const Gallery = () => {
@@ -20,11 +21,11 @@ const Gallery = () => {
   // Array de imágenes iniciales con posiciones y tamaños
   const initialImages = [
     { id: '1', src: initialImage1, top: '31%', left: '0%', width: '15%', height: '45%' },
-    { id: '2', src: initialImage2, top: '45%', left: '34%', width: '10%', height: '15%' },
+    { id: '2', src: initialImage2, top: '45%', left: '34%', width: '10%', height: '17%' },
     { id: '3', src: initialImage3, top: '44%', left: '67.5%', width: '12%', height: '16%' },
     { id: '4', src: initialImage4, top: '48%', left: '61.5%', width: '7%', height: '9%' },
-    { id: '5', src: initialImage5, top: '42%', left: '22%', width: '14%', height: '22%' },
-    { id: '6', src: initialImage6, top: '35%', left: '12.5%', width: '8%', height: '36%' },
+    { id: '5', src: initialImage5, top: '41%', left: '22%', width: '14%', height: '23%' },
+    { id: '6', src: initialImage6, top: '34%', left: '12%', width: '8%', height: '40%' },
     { id: '7', src: initialImage7, top: '40.9%', left: '75%', width: '14%', height: '25%' },
     { id: '8', src: initialImage8, top: '25%', left: '82%', width: '18%', height: '53%' },
   ];
@@ -74,6 +75,7 @@ const Gallery = () => {
           alt="Imagen Principal"
           className="w-[1200px] h-[600px] object-cover"
         />
+
 
         {/* Miniaturas encima de la imagen principal */}
         {initialImages.map((initialImage) => (
