@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getMemes } from '../services/services';
-import initialImage1 from '../assets/images/cuadro11111SF.png';
-import initialImage2 from '../assets/images/cuadro2SF.png';
-import initialImage3 from '../assets/images/cuadro3333SF.png';
-import initialImage4 from '../assets/images/cuadro4SF.png';
-import initialImage5 from '../assets/images/cuadro55SF.png';
-import initialImage6 from '../assets/images/cuadro66SF.png';
-import initialImage7 from '../assets/images/cuadro77SF.png';
-import initialImage8 from '../assets/images/cuadro888SF.png';
+import initialImage1 from '../assets/images/cuadro1.png';
+import initialImage2 from '../assets/images/cuadro2.png';
+import initialImage3 from '../assets/images/cuadro3.png';
+import initialImage4 from '../assets/images/cuadro4.png';
+import initialImage5 from '../assets/images/cuadro5.png';
+import initialImage6 from '../assets/images/cuadro6.png';
+import initialImage7 from '../assets/images/cuadro7.png';
+import initialImage8 from '../assets/images/cuadro8.png';
 import S1 from '../assets/images/S1.png';
 
 import MemeView from '../components/MemeView';
