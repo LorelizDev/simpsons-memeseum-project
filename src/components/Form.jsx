@@ -17,26 +17,35 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="title">Título</label>
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-6 bg-gray-100 shadow-lg rounded-lg">
+      <div className="mb-6">
+        <label htmlFor="title" className="block text-gray-700 font-semibold mb-2">Título</label>
         <input
           id="title"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           {...register('title', { required: 'El título es obligatorio' })}
         />
-        {errors.title && <span>{errors.title.message}</span>}
+        {errors.title && <span className="text-red-500 text-sm">{errors.title.message}</span>}
       </div>
-      <div>
-        <label htmlFor="imageUrl">URL de la Imagen</label>
+      <div className="mb-6">
+        <label htmlFor="imageFile" className="block text-gray-700 font-semibold mb-2">Archivo de Imagen</label>
         <input
-          id="imageUrl"
-          {...register('imageUrl', { required: 'La URL de la imagen es obligatoria' })}
+          type="file"
+          id="imageFile"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          {...register('imageFile', {
+            required: 'El archivo de imagen es obligatorio',
+            validate: {
+              acceptedFormats: (files) =>
+                ['image/jpeg', 'image/png', 'image/svg+xml'].includes(files[0]?.type) || 'Solo se permiten archivos JPG, PNG o SVG'
+            }
+          })}
         />
-        {errors.imageUrl && <span>{errors.imageUrl.message}</span>}
+        {errors.imageFile && <span className="text-red-500 text-sm">{errors.imageFile.message}</span>}
       </div>
-      <button type="submit">Crear Meme</button>
+      <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300">Crear Meme</button>
     </form>
   );
-};
+}
 
 export default Form;
