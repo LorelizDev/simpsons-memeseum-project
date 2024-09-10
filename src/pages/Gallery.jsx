@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { getMemes } from '../services/services';
 import initialImage1 from '../assets/images/cuadro11111SF.png';
@@ -20,14 +19,14 @@ const Gallery = () => {
 
   // Array de imágenes iniciales con posiciones y tamaños
   const initialImages = [
-    { id: '1', src: initialImage1, top: '31%', left: '0%', width: '96px', height: '280px' },
-    { id: '2', src: initialImage2, top: '45%', left: '34%', width: '72px', height: '90px' },
-    { id: '3', src: initialImage3, top: '44%', left: '67.5%', width: '80px', height: '100px' },
-    { id: '4', src: initialImage4, top: '48%', left: '61.5%', width: '55px', height: '55px' },
-    { id: '5', src: initialImage5, top: '42%', left: '21%', width: '100px', height: '130px' },
-    { id: '6', src: initialImage6, top: '35%', left: '12.5%', width: '50px', height: '224px' },
-    { id: '7', src: initialImage7, top: '40.9%', left: '75%', width: '100px', height: '150px' },
-    { id: '8', src: initialImage8, top: '25%', left: '82%', width: '130px', height: '320px' },
+    { id: '1', src: initialImage1, top: '31%', left: '0%', width: '15%', height: '45%' },
+    { id: '2', src: initialImage2, top: '45%', left: '34%', width: '10%', height: '15%' },
+    { id: '3', src: initialImage3, top: '44%', left: '67.5%', width: '12%', height: '16%' },
+    { id: '4', src: initialImage4, top: '48%', left: '61.5%', width: '7%', height: '9%' },
+    { id: '5', src: initialImage5, top: '42%', left: '22%', width: '14%', height: '22%' },
+    { id: '6', src: initialImage6, top: '35%', left: '12.5%', width: '8%', height: '36%' },
+    { id: '7', src: initialImage7, top: '40.9%', left: '75%', width: '14%', height: '25%' },
+    { id: '8', src: initialImage8, top: '25%', left: '82%', width: '18%', height: '53%' },
   ];
 
   // Obtener datos de db.json cuando el componente se monta
@@ -82,7 +81,7 @@ const Gallery = () => {
             key={initialImage.id}
             src={initialImage.src}
             alt={`Cuadro Inicial ${initialImage.id}`}
-            className="absolute object-cover cursor-pointer transition-transform duration-300 group-hover:brightness-110 group-hover:scale-105"
+            className="absolute object-cover cursor-pointer transition-transform duration-300 hover:brightness-110 hover:scale-105"
             style={{
               top: initialImage.top,
               left: initialImage.left,
@@ -108,6 +107,7 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
 
 
     
