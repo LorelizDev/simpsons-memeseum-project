@@ -67,7 +67,7 @@ const Gallery = () => {
   const handleDelete = async (id) => {
     const userConfirmed = confirm('¿Estás seguro que quieres eliminar este meme?');
     if (userConfirmed) {
-      setShowLargeImage(false); // Cierra la vista de la imagen grande si la eliminación fue exitosa
+      handleClose(); // Cierra la vista de la imagen grande
       await deleteMeme(id); // Llama a la API para eliminar el meme
       setData((prevData) => prevData.filter((meme) => meme.id !== id)); // Elimina del estado
       alert('El meme ha sido eliminado correctamente.');

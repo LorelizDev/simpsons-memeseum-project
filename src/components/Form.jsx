@@ -6,8 +6,12 @@ const Form = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('imageFile', data.imageFile[0]);
+
     try {
-      const createdMeme = await createMeme(data);
+      const createdMeme = await createMeme(formData);
       console.log('Meme creado:', createdMeme);
       // Aquí puedes manejar la respuesta, por ejemplo, mostrar un mensaje al usuario
     } catch (error) {
