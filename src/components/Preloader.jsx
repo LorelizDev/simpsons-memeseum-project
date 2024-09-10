@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MemeDetail = () => {
+const Preloader = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const MemeDetail = () => {
   )
 }
 
-export default MemeDetail
+export default Preloader

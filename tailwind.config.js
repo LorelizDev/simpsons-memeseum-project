@@ -8,7 +8,8 @@ export default {
     extend: {
       spacing: {
         
-        '120': '26rem', // Otro tamaño intermedio
+        '120': '26rem',
+        '360': '78rem',
       },
       fontFamily: {
         'simpson-title': ['Simpsonfont', 'sans-serif'],

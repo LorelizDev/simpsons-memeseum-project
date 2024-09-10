@@ -4,7 +4,7 @@ import ButtonImage from './ButtonImage'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between items-center h-36 bg-[url("src/assets/images/simpson_sky_background-removebg.png")]'>
+    <nav className='flex justify-between items-center mb-12 h-36 bg-[url("src/assets/images/simpson_sky_background-removebg.png")]'>
       <div className='w-28 ml-3'>
         <ButtonImage 
           url_a='/'
