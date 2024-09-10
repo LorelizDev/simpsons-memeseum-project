@@ -4,7 +4,7 @@
 {
     "id": "1",
     "name": "Meme1",
-    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725624549/cuadro2_ub7kue.png",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725886264/cuadro1_jccbdi.png",
     "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
@@ -53,7 +53,7 @@
   {
     "id": "8",
     "name": "Meme8",
-    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627717/cuadro8_shbbm0.png",
+    "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873555/cuadro8_nk23ai.png",
     "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
