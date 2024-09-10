@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { getMemes } from '../services/services';  
-import AudioPlayer from '../components/AudioPlayer';  
+import { getMemes } from '../services/services';
+import AudioPlayer from '../components/AudioPlayer';
+import backgroundImage from '../assets/images/FullGallery.png';  // Importa la imagen de fondo
 
 const FullGallery = () => {
-  const [data, setData] = useState([]);  // Estado para almacenar los memes/imágenes
-  const [selectedMeme, setSelectedMeme] = useState(null);  // Estado para la imagen seleccionada
-  const [showLargeImage, setShowLargeImage] = useState(false);  // Controla si mostrar la imagen grande
+  const [data, setData] = useState([]);
+  const [selectedMeme, setSelectedMeme] = useState(null);
+  const [showLargeImage, setShowLargeImage] = useState(false);
 
-  // Obtener datos de la API cuando el componente se monta
   useEffect(() => {
     const loadMemes = async () => {
-      const memes = await getMemes();  // Llamada a la función del servicio para obtener los memes
-      setData(memes);  // Guardar los memes en el estado
+      const memes = await getMemes();
+      setData(memes);
     };
 
     loadMemes();
   }, []);
 
-  // Manejar el click para mostrar/ocultar la imagen grande
   const handleClick = (meme) => {
     if (selectedMeme && selectedMeme.id === meme.id) {
       setSelectedMeme(null);
@@ -29,7 +28,14 @@ const FullGallery = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen">
+    <div
+      className="relative flex flex-col items-center justify-center h-screen"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,  // Aplica la imagen de fondo
+        backgroundSize: 'cover',  // Ajusta la imagen para cubrir todo el contenedor
+        backgroundPosition: 'center',  // Centra la imagen de fondo
+      }}
+    >
       {/* Reproductor de audio */}
       <AudioPlayer />
 
@@ -38,9 +44,9 @@ const FullGallery = () => {
         {data.map((meme) => (
           <img
             key={meme.id}
-            src={meme.image}  // Mostrar la imagen desde la API
+            src={meme.image}
             alt={meme.name}
-            className="w-24 h-24 object-cover cursor-pointer"
+            className="w-32 h-32 object-cover cursor-pointer"
             onClick={() => handleClick(meme)}
           />
         ))}
@@ -53,7 +59,7 @@ const FullGallery = () => {
           onClick={() => handleClick(selectedMeme)}
         >
           <img
-            src={selectedMeme.image}  // Mostrar la imagen grande desde la API
+            src={selectedMeme.image}
             alt={selectedMeme.name}
             className="w-120 h-120 object-cover"
           />
