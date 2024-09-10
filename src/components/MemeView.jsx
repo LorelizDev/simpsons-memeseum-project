@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
+const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete }) => {
   if (!currentImage) return null;
 
 
@@ -31,7 +31,7 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
           <div className="absolute top-4 right-4 flex space-x-4 z-30">
             <button
               className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
-            
+              onClick={(e) => {e.stopPropagation(); handleDelete(currentImage.id);}}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
