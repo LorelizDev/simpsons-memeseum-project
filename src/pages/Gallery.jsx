@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { getMemes } from '../services/services';
-import initialImage1 from '../assets/images/cuadro11.png';
-import initialImage2 from '../assets/images/cuadro2.png';
-import initialImage3 from '../assets/images/cuadro3.png';
-import initialImage4 from '../assets/images/cuadro44.png';
-import initialImage5 from '../assets/images/cuadro5.png';
-import initialImage6 from '../assets/images/cuadro6.png';
-import initialImage7 from '../assets/images/cuadro7.png';
-import initialImage8 from '../assets/images/cuadro88.png';
+import initialImage1 from '../assets/images/cuadro11111SF.png';
+import initialImage2 from '../assets/images/cuadro2SF.png';
+import initialImage3 from '../assets/images/cuadro3333SF.png';
+import initialImage4 from '../assets/images/cuadro4SF.png';
+import initialImage5 from '../assets/images/cuadro55SF.png';
+import initialImage6 from '../assets/images/cuadro66SF.png';
+import initialImage7 from '../assets/images/cuadro77SF.png';
+import initialImage8 from '../assets/images/cuadro888SF.png';
 import S1 from '../assets/images/S1.png';
 
 import MemeView from '../components/MemeView';
@@ -20,14 +20,14 @@ const Gallery = () => {
 
   // Array de imágenes iniciales con posiciones y tamaños
   const initialImages = [
-    { id: '1', src: initialImage1, top: '25%', left: '-5%', width: '200px', height: '420px' },
-    { id: '2', src: initialImage2, top: '37%', left: '33%', width: '150px', height: '230px' },
-    { id: '3', src: initialImage3, top: '40%', left: '59%', width: '140px', height: '170px' },
-    { id: '4', src: initialImage4, top: '23%', left: '62%', width: '200px', height: '400px' },
-    { id: '5', src: initialImage5, top: '40%', left: '21%', width: '130px', height: '200px' },
-    { id: '6', src: initialImage6, top: '27%', left: '12%', width: '100px', height: '350px' },
-    { id: '7', src: initialImage7, top: '42%', left: '76%', width: '200px', height: '180px' },
-    { id: '8', src: initialImage8, top: '14%', left: '85%', width: '180px', height: '520px' },
+    { id: '1', src: initialImage1, top: '31%', left: '0%', width: '96px', height: '280px' },
+    { id: '2', src: initialImage2, top: '45%', left: '34%', width: '72px', height: '90px' },
+    { id: '3', src: initialImage3, top: '44%', left: '67.5%', width: '80px', height: '100px' },
+    { id: '4', src: initialImage4, top: '48%', left: '61.5%', width: '55px', height: '55px' },
+    { id: '5', src: initialImage5, top: '42%', left: '21%', width: '100px', height: '130px' },
+    { id: '6', src: initialImage6, top: '35%', left: '12.5%', width: '50px', height: '224px' },
+    { id: '7', src: initialImage7, top: '40.9%', left: '75%', width: '100px', height: '150px' },
+    { id: '8', src: initialImage8, top: '25%', left: '82%', width: '130px', height: '320px' },
   ];
 
   // Obtener datos de db.json cuando el componente se monta
@@ -48,13 +48,13 @@ const Gallery = () => {
 
   // Mover a la siguiente imagen
   const handleNext = (e) => {
-    e.stopPropagation(); // Evita cerrar la imagen grande al hacer clic en las flechas
+    e.stopPropagation();
     setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
   };
 
   // Mover a la imagen anterior
   const handlePrev = (e) => {
-    e.stopPropagation(); // Evita cerrar la imagen grande al hacer clic en las flechas
+    e.stopPropagation();
     setSelectedIndex((prevIndex) => (prevIndex - 1 + initialImages.length) % initialImages.length);
   };
 
@@ -89,7 +89,7 @@ const Gallery = () => {
               width: initialImage.width,
               height: initialImage.height,
             }}
-            onClick={() => handleClick(initialImage.id - 1)} // Ajusta el índice según sea necesario
+            onClick={() => handleClick(initialImage.id - 1)}
           />
         ))}
       </div>
