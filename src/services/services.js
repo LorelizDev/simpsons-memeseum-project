@@ -13,6 +13,17 @@ export const getMemes = async () => {
   }
 };
 
+// POST
+export const createMeme = async (data) => {
+  try {
+    const response = await axios.post(URL_API, data);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating meme:', error);
+    return null;
+  }
+};
+
 // REQUEST DELETE
  // Función para eliminar un meme por ID
  export const deleteMeme = async (id) => {
