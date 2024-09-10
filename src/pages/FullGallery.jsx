@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMemes } from '../services/services';
+import { getMemes, deleteMeme } from '../services/services'; // Importa deleteMeme
 import AudioPlayer from '../components/AudioPlayer';
 import backgroundImage from '../assets/images/FullGallery.png'; // Importa la imagen de fondo
 
@@ -27,9 +27,15 @@ const FullGallery = () => {
     setShowLargeImage(false);
   };
 
-  const handleDelete = (memeId) => {
-    setData(data.filter((meme) => meme.id !== memeId));
-    handleClose(); // Cierra la vista de imagen grande después de eliminar
+  const handleDelete = async (memeId) => {
+    try {
+      await deleteMeme(memeId); // Llama a la función de eliminación
+      setData(data.filter((meme) => meme.id !== memeId)); // Actualiza el estado para eliminar el meme de la lista
+      handleClose(); // Cierra la vista de imagen grande después de eliminar
+    } catch (error) {
+      console.error('Error al eliminar el meme:', error);
+      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
+    }
   };
 
   const handleNext = () => {
@@ -67,7 +73,7 @@ const FullGallery = () => {
             key={meme.id}
             src={meme.image}
             alt={meme.name}
-            className="w-32 h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105" // Agrega efecto de hover
+            className="w-32 h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110" // Agrega efecto de hover
             onClick={() => handleClick(meme)}
           />
         ))}
