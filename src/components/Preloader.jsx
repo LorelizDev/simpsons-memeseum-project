@@ -1,11 +1,35 @@
-import React from 'react'
+// Preloader.jsx
+import React, { useEffect, useState } from 'react';
+import './Preloader.css';
 
 const Preloader = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [isOpen, setIsOpen] = useState(false);
 
-export default Preloader
+  useEffect(() => {
+    // Simula la carga, después de un tiempo de abrir la puerta
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1000); // Aquí ponemos el tiempo 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className={`preloader ${isOpen ? 'open' : ''}`} id="preloader">
+      <div className="door">
+        <div className="door-panel left"></div>
+        <div className="door-panel right"></div>
+      </div>
+    </div>
+  );
+};
+
+export default Preloader;
+
+
+
+
+
+
+
+

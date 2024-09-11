@@ -6,56 +6,48 @@
     "name": "Meme1",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725624549/cuadro2_ub7kue.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "2",
     "name": "Meme2",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro2_ifnrux.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "3",
     "name": "Meme3",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro3_n9lclf.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "4",
     "name": "Meme4",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873557/cuadro4_alitnr.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "5",
     "name": "Meme5",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873558/cuadro5_vt70lc.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "6",
     "name": "Meme6",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro6_vh8ea3.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "7",
     "name": "Meme7",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro7_imupmf.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   {
     "id": "8",
     "name": "Meme8",
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725627717/cuadro8_shbbm0.png",
     "creationDate": "03/09/2024",
-    "description": "Este es un producto de ejemplo con una descripción breve."
   },
   { "id": "9", "image": "https://frinkiac.com/meme/S15E14/1151317.jpg?b64lines=IEhveSBlbiBDb211bmlkYWQgT3JhbmdlOiAKSEFDRVIgTUVNRSBERSBMT1MgU0lNUFNPTlMKTVVZIEZBQ0lMIQ==", "name": "Meme 9" },
   { "id": "10", "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/02/561970-simpson-conoce-frinkiac-buscador-memes-serie.jpg?tf=3840x", "name": "Meme 10" }

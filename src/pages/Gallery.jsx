@@ -8,17 +8,25 @@ import initialImage5 from '../assets/images/cuadro5.png';
 import initialImage6 from '../assets/images/cuadro6.png';
 import initialImage7 from '../assets/images/cuadro7.png';
 import initialImage8 from '../assets/images/cuadro8.png';
+import meme1 from '../assets/images/meme1.png';
+import meme2 from '../assets/images/meme2.png';
+import meme3 from '../assets/images/meme3.png';
+import meme4 from '../assets/images/meme4.png';
+import meme5 from '../assets/images/meme5.png';
+import meme6 from '../assets/images/meme6.png';
+import meme7 from '../assets/images/meme7.png';
+import meme8 from '../assets/images/meme8.png';
 import S1 from '../assets/images/S1.png';
 
-
 import MemeView from '../components/MemeView';
+import AudioPlayer from '../components/AudioPlayer';
 
 const Gallery = () => {
   const [data, setData] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [showLargeImage, setShowLargeImage] = useState(false);
 
-  // Array de imágenes iniciales con posiciones y tamaños
+  // Definimos las imágenes iniciales
   const initialImages = [
     { id: '1', src: initialImage1, top: '31%', left: '0%', width: '15%', height: '45%' },
     { id: '2', src: initialImage2, top: '45%', left: '34%', width: '10%', height: '17%' },
@@ -30,55 +38,56 @@ const Gallery = () => {
     { id: '8', src: initialImage8, top: '25%', left: '82%', width: '18%', height: '53%' },
   ];
 
-  // Obtener datos de db.json cuando el componente se monta
+  // Definimos los memes correspondientes
+  const mainMemes = [meme1, meme2, meme3, meme4, meme5, meme6, meme7, meme8];
+
   useEffect(() => {
     const loadMemes = async () => {
-      const memes = await getMemes();
-      setData(memes);
+      const memesData = await getMemes();
+      setData(memesData);
     };
 
     loadMemes();
   }, []);
 
-  // Manejar el click para mostrar la imagen grande
+  // Al hacer clic, muestra el meme correspondiente
   const handleClick = (index) => {
     setSelectedIndex(index);
     setShowLargeImage(true);
   };
 
-  // Mover a la siguiente imagen
   const handleNext = (e) => {
     e.stopPropagation();
     setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
   };
 
-  // Mover a la imagen anterior
   const handlePrev = (e) => {
     e.stopPropagation();
     setSelectedIndex((prevIndex) => (prevIndex - 1 + initialImages.length) % initialImages.length);
   };
 
-  // Cerrar la imagen grande
   const handleClose = () => {
     setShowLargeImage(false);
     setSelectedIndex(null);
   };
 
-  const currentImage = initialImages[selectedIndex];
+  // Selecciona el meme actual basado en el índice seleccionado
+  const currentMeme = selectedIndex !== null ? mainMemes[selectedIndex] : null;
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen">
+      <AudioPlayer />
+
       {/* Imagen Principal */}
-      <div className="relative flex justify-center items-center">
+      <div className="relative flex justify-center items-center border border-white border-2 rounded-lg">
         <img
           src={S1}
           alt="Imagen Principal"
           className="w-[1200px] h-[600px] object-cover"
         />
 
-
         {/* Miniaturas encima de la imagen principal */}
-        {initialImages.map((initialImage) => (
+        {initialImages.map((initialImage, index) => (
           <img
             key={initialImage.id}
             src={initialImage.src}
@@ -90,15 +99,15 @@ const Gallery = () => {
               width: initialImage.width,
               height: initialImage.height,
             }}
-            onClick={() => handleClick(initialImage.id - 1)}
+            onClick={() => handleClick(index)}
           />
         ))}
       </div>
 
       {/* Renderizar el componente MemeView si se muestra la imagen grande */}
-      {showLargeImage && (
+      {showLargeImage && currentMeme && (
         <MemeView
-          currentImage={currentImage}
+          currentImage={{ src: currentMeme }} // Pasa el meme como la imagen actual
           handleClose={handleClose}
           handleNext={handleNext}
           handlePrev={handlePrev}
@@ -109,6 +118,7 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
 
 
 
