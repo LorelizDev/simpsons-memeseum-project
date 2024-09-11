@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMemes } from '../services/services';
+import { getMemes, deleteMeme } from '../services/services';
 import initialImage1 from '../assets/images/cuadro1.png';
 import initialImage2 from '../assets/images/cuadro2.png';
 import initialImage3 from '../assets/images/cuadro3.png';
@@ -71,6 +71,17 @@ const Gallery = () => {
     setSelectedIndex(null);
   };
 
+  // Manejar click para eliminar meme
+  const handleDelete = async (id) => {
+    const userConfirmed = confirm('¿Estás seguro que quieres eliminar este meme?');
+    if (userConfirmed) {
+      handleClose(); // Cierra la vista de la imagen grande
+      await deleteMeme(id); // Llama a la API para eliminar el meme
+      setData((prevData) => prevData.filter((meme) => meme.id !== id)); // Elimina del estado
+      alert('El meme ha sido eliminado correctamente.');
+    }
+  };
+
   // Selecciona el meme actual basado en el índice seleccionado
   const currentMeme = selectedIndex !== null ? mainMemes[selectedIndex] : null;
 
@@ -111,6 +122,7 @@ const Gallery = () => {
           handleClose={handleClose}
           handleNext={handleNext}
           handlePrev={handlePrev}
+          handleDelete={() => handleDelete(currentImage.id)} // Pasar handleDelete a MemeView
         />
       )}
     </div>

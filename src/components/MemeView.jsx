@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
-const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
+const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete }) => {
   if (!currentImage) return null;
 
 

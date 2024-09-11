@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ButtonAddMeme = () => {
   return (
     <a href='newmeme' className='w-32 mr-3 pt-3 flex self-start relative hover:scale-110 group transition-all duration-300 ease-in-out'>

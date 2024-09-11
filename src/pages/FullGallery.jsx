@@ -1,58 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { getMemes, deleteMeme } from '../services/services'; // Importa deleteMeme
-import AudioPlayer from '../components/AudioPlayer';
+import { getMemes, deleteMeme } from '../services/services'; // Importa funciones para obtener y eliminar memes
+import AudioPlayer from '../components/AudioPlayer'; // Importa el componente del reproductor de audio
 import backgroundImage from '../assets/images/FullGallery.png'; // Importa la imagen de fondo
 
+
 const FullGallery = () => {
-  const [data, setData] = useState([]);
-  const [selectedMeme, setSelectedMeme] = useState(null);
-  const [showLargeImage, setShowLargeImage] = useState(false);
+  const [data, setData] = useState([]); // Estado para almacenar los memes
+  const [selectedMeme, setSelectedMeme] = useState(null); // Estado para almacenar el meme actualmente seleccionado
+  const [showLargeImage, setShowLargeImage] = useState(false); // Estado para controlar la visibilidad de la imagen grande
+
 
   useEffect(() => {
     const loadMemes = async () => {
-      const memes = await getMemes();
-      setData(memes);
+      const memes = await getMemes(); // Llama a la función getMemes para obtener los memes
+      setData(memes); // Actualiza el estado con los memes obtenidos
     };
 
-    loadMemes();
+    loadMemes(); // Llama a la función para cargar los memes al montar el componente
   }, []);
 
+
   const handleClick = (meme) => {
-    setSelectedMeme(meme);
-    setShowLargeImage(true);
+    setSelectedMeme(meme); // Establece el meme seleccionado
+    setShowLargeImage(true); // Muestra la imagen grande
   };
 
+
   const handleClose = () => {
-    setSelectedMeme(null);
-    setShowLargeImage(false);
+    setSelectedMeme(null); // Limpia el meme seleccionado
+    setShowLargeImage(false); // Oculta la imagen grande
   };
+
 
   const handleDelete = async (memeId) => {
     try {
-      await deleteMeme(memeId); // Llama a la función de eliminación
-      setData(data.filter((meme) => meme.id !== memeId)); // Actualiza el estado para eliminar el meme de la lista
+      await deleteMeme(memeId); // Llama a la función deleteMeme para eliminar el meme
+      setData(data.filter((meme) => meme.id !== memeId)); // Actualiza el estado eliminando el meme de la lista
       handleClose(); // Cierra la vista de imagen grande después de eliminar
     } catch (error) {
       console.error('Error al eliminar el meme:', error);
-      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
+      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.'); // Muestra un mensaje de error si la eliminación falla
     }
   };
 
+
   const handleNext = () => {
     if (selectedMeme) {
-      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id);
-      const nextIndex = (currentIndex + 1) % data.length;
-      setSelectedMeme(data[nextIndex]);
+      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id); // Encuentra el índice del meme actual
+      const nextIndex = (currentIndex + 1) % data.length; // Calcula el índice del siguiente meme
+      setSelectedMeme(data[nextIndex]); // Actualiza el estado con el siguiente meme
     }
   };
 
   const handlePrevious = () => {
     if (selectedMeme) {
-      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id);
-      const prevIndex = (currentIndex - 1 + data.length) % data.length;
-      setSelectedMeme(data[prevIndex]);
+      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id); // Encuentra el índice del meme actual
+      const prevIndex = (currentIndex - 1 + data.length) % data.length; // Calcula el índice del meme anterior
+      setSelectedMeme(data[prevIndex]); // Actualiza el estado con el meme anterior
     }
   };
+
 
   return (
     <div
