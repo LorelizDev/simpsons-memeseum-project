@@ -57,8 +57,8 @@
     "creationDate": "03/09/2024",
     "description": "Este es un producto de ejemplo con una descripción breve."
   },
-  { "id": "9", "image": "https://frinkiac.com/meme/S15E14/1151317.jpg?b64lines=IEhveSBlbiBDb211bmlkYWQgT3JhbmdlOiAKSEFDRVIgTUVNRSBERSBMT1MgU0lNUFNPTlMKTVVZIEZBQ0lMIQ==", "name": "Meme 9" },
-  { "id": "10", "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/02/561970-simpson-conoce-frinkiac-buscador-memes-serie.jpg?tf=3840x", "name": "Meme 10" }
+  { "id": "9", "image": "https://frinkiac.com/meme/S15E14/1151317.jpg?b64lines=IEhveSBlbiBDb211bmlkYWQgT3JhbmdlOiAKSEFDRVIgTUVNRSBERSBMT1MgU0lNUFNPTlMKTVVZIEZBQ0lMIQ==", "name": "telediario" },
+  { "id": "10", "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/02/561970-simpson-conoce-frinkiac-buscador-memes-serie.jpg?tf=3840x", "name": "Homer loco" }
 
 ]
 }
