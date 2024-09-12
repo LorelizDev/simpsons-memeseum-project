@@ -1,4 +1,4 @@
-// Preloader.jsx
+
 import React, { useEffect, useState } from 'react';
 import './Preloader.css';
 
@@ -9,7 +9,7 @@ const Preloader = () => {
     // Simula la carga, después de un tiempo de abrir la puerta
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 1000); // Aquí ponemos el tiempo 
+    }, ); 
 
     return () => clearTimeout(timer);
   }, []);

@@ -19,11 +19,11 @@ export const router = createBrowserRouter([
         element: <CreateMeme />
       },
       {
-        path: 'full-gallery',  // Nueva ruta para la galería
+        path: 'full-gallery',
         element: <FullGallery />
       },
       {
-        path: 'main-gallery',  // Nueva ruta para la galería
+        path: 'main-gallery',
         element: <Gallery />
       }
     ]

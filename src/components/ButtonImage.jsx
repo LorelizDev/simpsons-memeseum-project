@@ -1,7 +1,7 @@
 // ButtonImage.jsx
 import React from 'react';
 
-const ButtonImage = ({ url_a, target = null, url_image, alt_img, onClick }) => {
+const ButtonImage = ({ url_a, target, url_image, alt_img, onClick }) => {
   return (
     <button 
       type="button" 
