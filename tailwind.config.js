@@ -11,6 +11,10 @@ export default {
         '120': '26rem',
         '360': '78rem',
       },
+      screens: {
+        '2xl': '1200px',
+      },
+      
       fontFamily: {
         'simpson-title': ['Simpsonfont', 'sans-serif'],
         'simpson-p': ['Homer Simpson Revised', 'sans-serif'],
