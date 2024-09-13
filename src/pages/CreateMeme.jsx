@@ -1,9 +1,9 @@
-import Form from '../components/Form';
+import UploadWidget from '../components/UploadWidget';
 
 const CreateMeme = () => {
   return (
     <div>
-      <Form />
+      <UploadWidget />
     </div>
   )
 }
