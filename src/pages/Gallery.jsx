@@ -128,6 +128,7 @@ const Gallery = () => {
           handleClose={handleClose}
           handleNext={handleNext}
           handlePrev={handlePrev}
+          showIcons={false}
         />
       )}
     </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import ButtonIcon from './ButtonIcon';
 
 
-const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
+const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete, handleEdit, showIcons=true }) => {
   if (!currentImage) return null;
-
 
   return (
     <>
@@ -28,20 +28,34 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
             onClick={(e) => e.stopPropagation()}
           />
 
+          {/* Condicional para mostrar o no los íconos de papelera y lápiz */}
+          {/* Si no se quiere mostrar los iconos se le da el valor false a showIcons por props (showIcons=False) */}
+          {showIcons && (
+            <div className="absolute top-4 right-4 flex space-x-2 z-30">
+              <ButtonIcon 
+                icon={faTrash}
+                onClick={(e) => {e.stopPropagation(); handleDelete(currentImage.id);}}
+                className={'text-[#f4082c]'}
+              />
+              <ButtonIcon 
+                icon={faEdit}
+                onClick={(e) => {e.stopPropagation();handleEdit(currentImage.id)}}
+                className={'text-white'}
+              />
+            </div>
+          )}
 
           {/* Flechas de navegación */}
-          <button
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
+          <ButtonIcon 
+            icon={faArrowLeft}
             onClick={handlePrev}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </button>
-          <button
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition"
+            className={'absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white'}
+          />
+          <ButtonIcon 
+            icon={faArrowRight}
             onClick={handleNext}
-          >
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+            className={'absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white'}
+          />
         </div>
       </div>
     </>
