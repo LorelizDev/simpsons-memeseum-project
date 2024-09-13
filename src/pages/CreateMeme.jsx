@@ -1,11 +1,11 @@
-import UploadWidget from '../components/UploadWidget';
+import Form from "../components/Form";
 
 const CreateMeme = () => {
   return (
     <div>
-      <UploadWidget />
+      <Form />
     </div>
   )
 }
 
-export default CreateMeme
+export default CreateMeme;

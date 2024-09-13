@@ -17,8 +17,8 @@ const UploadWidget = ({ onUpload }) => {
   }, [onUpload]);
 
   return (
-    <button onClick={() => widgetRef.current.open()}>
-      Upload
+    <button className="block text-gray-700 font-semibold mb-2" onClick={() => widgetRef.current.open()}>
+      Seleccionar Archivo
     </button>
   );
 }
