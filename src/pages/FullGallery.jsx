@@ -1,65 +1,59 @@
+// src/pages/FullGallery.jsx
 import React, { useState, useEffect } from 'react';
-import { getMemes, deleteMeme } from '../services/services'; // Importa funciones para obtener y eliminar memes
-import AudioPlayer from '../components/AudioPlayer'; // Importa el componente del reproductor de audio
-import backgroundImage from '../assets/images/FullGallery.png'; // Importa la imagen de fondo
-
+import { getMemes, deleteMeme } from '../services/services';
+import AudioPlayer from '../components/AudioPlayer';
+import backgroundImage from '../assets/images/FullGallery.png';
 
 const FullGallery = () => {
-  const [data, setData] = useState([]); // Estado para almacenar los memes
-  const [selectedMeme, setSelectedMeme] = useState(null); // Estado para almacenar el meme actualmente seleccionado
-  const [showLargeImage, setShowLargeImage] = useState(false); // Estado para controlar la visibilidad de la imagen grande
-
+  const [data, setData] = useState([]);
+  const [selectedMeme, setSelectedMeme] = useState(null);
+  const [showLargeImage, setShowLargeImage] = useState(false);
 
   useEffect(() => {
     const loadMemes = async () => {
-      const memes = await getMemes(); // Llama a la función getMemes para obtener los memes
-      setData(memes); // Actualiza el estado con los memes obtenidos
+      const memes = await getMemes();
+      setData(memes);
     };
 
-    loadMemes(); // Llama a la función para cargar los memes al montar el componente
+    loadMemes();
   }, []);
 
-
   const handleClick = (meme) => {
-    setSelectedMeme(meme); // Establece el meme seleccionado
-    setShowLargeImage(true); // Muestra la imagen grande
+    setSelectedMeme(meme);
+    setShowLargeImage(true);
   };
-
 
   const handleClose = () => {
-    setSelectedMeme(null); // Limpia el meme seleccionado
-    setShowLargeImage(false); // Oculta la imagen grande
+    setSelectedMeme(null);
+    setShowLargeImage(false);
   };
-
 
   const handleDelete = async (memeId) => {
     try {
-      await deleteMeme(memeId); // Llama a la función deleteMeme para eliminar el meme
-      setData(data.filter((meme) => meme.id !== memeId)); // Actualiza el estado eliminando el meme de la lista
-      handleClose(); // Cierra la vista de imagen grande después de eliminar
+      await deleteMeme(memeId);
+      setData(data.filter((meme) => meme.id !== memeId));
+      handleClose();
     } catch (error) {
       console.error('Error al eliminar el meme:', error);
-      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.'); // Muestra un mensaje de error si la eliminación falla
+      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
     }
   };
 
-
   const handleNext = () => {
     if (selectedMeme) {
-      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id); // Encuentra el índice del meme actual
-      const nextIndex = (currentIndex + 1) % data.length; // Calcula el índice del siguiente meme
-      setSelectedMeme(data[nextIndex]); // Actualiza el estado con el siguiente meme
+      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id);
+      const nextIndex = (currentIndex + 1) % data.length;
+      setSelectedMeme(data[nextIndex]);
     }
   };
 
   const handlePrevious = () => {
     if (selectedMeme) {
-      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id); // Encuentra el índice del meme actual
-      const prevIndex = (currentIndex - 1 + data.length) % data.length; // Calcula el índice del meme anterior
-      setSelectedMeme(data[prevIndex]); // Actualiza el estado con el meme anterior
+      const currentIndex = data.findIndex((meme) => meme.id === selectedMeme.id);
+      const prevIndex = (currentIndex - 1 + data.length) % data.length;
+      setSelectedMeme(data[prevIndex]);
     }
   };
-
 
   return (
     <div
@@ -73,56 +67,61 @@ const FullGallery = () => {
       {/* Reproductor de audio */}
       <AudioPlayer />
 
-      {/* Mostrar todas las miniaturas de los memes */}
-      <div className="absolute left-4 top-4 flex flex-wrap space-x-2">
+      {/* Mostrar todas las miniaturas de los memes en un cuadro */}
+      <div className="absolute left-4 top-4 flex flex-wrap space-x-4">
         {data.map((meme) => (
-          <img
+          <div
             key={meme.id}
-            src={meme.image}
-            alt={meme.name}
-            className="w-32 h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110" // Agrega efecto de hover
-            onClick={() => handleClick(meme)}
-          />
+            className="border-4 border-blue-500 shadow-xl p-6 m-6 rounded-lg bg-yellow-200 flex flex-col items-center" // Cambios en el color y tamaño del cuadro
+            style={{ width: '150px', height: '175px' }} // Personaliza el tamaño del cuadro
+          >
+            <img
+              src={meme.image}
+              alt={meme.name}
+              className="w-full h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handleClick(meme)}
+            />
+            <h3 className="text-center mt-2 text-sm font-bold">{meme.name}</h3> {/* Nombre del meme */}
+          </div>
         ))}
       </div>
 
       {/* Mostrar imagen grande con overlay al hacer clic en una miniatura */}
       {showLargeImage && selectedMeme && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10" // Overlay oscuro
-          onClick={handleClose} // Cierra la vista al hacer clic en el overlay
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
+          onClick={handleClose}
         >
           <div className="relative">
-            {/* Imagen grande seleccionada */}
             <img
               src={selectedMeme.image}
               alt={selectedMeme.name}
               className="w-120 h-120 object-cover"
-              onClick={(e) => e.stopPropagation()} // Detiene la propagación del evento para no cerrar al hacer clic en la imagen
+              onClick={(e) => e.stopPropagation()}
             />
 
             {/* Botón de flecha izquierda */}
             <button
-              onClick={(e) => { e.stopPropagation(); handlePrevious(); }} // Detener propagación y navegar
+              onClick={(e) => { e.stopPropagation(); handlePrevious(); }}
               className="absolute left-0 ml-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
             >
-              &#9664; {/* Carácter Unicode para la flecha izquierda */}
+              &#9664;
             </button>
 
             {/* Botón de flecha derecha */}
             <button
-              onClick={(e) => { e.stopPropagation(); handleNext(); }} // Detener propagación y navegar
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
               className="absolute right-0 mr-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
             >
-              &#9654; {/* Carácter Unicode para la flecha derecha */}
+              &#9654;
             </button>
 
             {/* Botón de eliminación */}
             <button
-              onClick={(e) => { e.stopPropagation(); handleDelete(selectedMeme.id); }} // Detener propagación y eliminar
+              onClick={(e) => { e.stopPropagation(); handleDelete(selectedMeme.id); }}
               className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white p-2 rounded-full shadow-md hover:bg-red-600"
             >
-              🗑️ {/* Carácter Unicode para la papelera */}
+              🗑️
             </button>
           </div>
         </div>
@@ -132,4 +131,3 @@ const FullGallery = () => {
 };
 
 export default FullGallery;
-

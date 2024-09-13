@@ -49,8 +49,8 @@
     "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873555/cuadro8_nk23ai.png",
     "creationDate": "03/09/2024",
   },
-  { "id": "9", "image": "https://frinkiac.com/meme/S15E14/1151317.jpg?b64lines=IEhveSBlbiBDb211bmlkYWQgT3JhbmdlOiAKSEFDRVIgTUVNRSBERSBMT1MgU0lNUFNPTlMKTVVZIEZBQ0lMIQ==", "name": "Meme 9" },
-  { "id": "10", "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/02/561970-simpson-conoce-frinkiac-buscador-memes-serie.jpg?tf=3840x", "name": "Meme 10" }
+  { "id": "9", "image": "https://frinkiac.com/meme/S15E14/1151317.jpg?b64lines=IEhveSBlbiBDb211bmlkYWQgT3JhbmdlOiAKSEFDRVIgTUVNRSBERSBMT1MgU0lNUFNPTlMKTVVZIEZBQ0lMIQ==", "name": "telediario" },
+  { "id": "10", "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/02/561970-simpson-conoce-frinkiac-buscador-memes-serie.jpg?tf=3840x", "name": "Homer loco" }
 
 ]
 }

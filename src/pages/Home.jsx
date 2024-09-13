@@ -21,8 +21,7 @@ const Home = () => {
   };
 
   return (
-    
-    <div className='relative flex justify-center mx-10 h-[calc(100vh-9rem-5rem-5rem)]'>
+    <div className='relative flex justify-center'>
       <AudioPlayer src={audioFile} />
       <img src="src/assets/images/front-museum.jpg" alt="Fachada de Simpson's Memeseum" className='max-h-full border-none rounded-3xl' />
       <div className='absolute h-1/5 bottom-[32%] active:scale-90 active:hue-rotate-30'>
