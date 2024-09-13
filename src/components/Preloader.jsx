@@ -1,15 +1,15 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Preloader.css';
 
 const Preloader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Simula la carga, después de un tiempo de abrir la puerta
+    // Simula la carga, después de un tiempo
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, ); 
+    },100 ); 
 
     return () => clearTimeout(timer);
   }, []);

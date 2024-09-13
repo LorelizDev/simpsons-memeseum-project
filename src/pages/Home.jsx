@@ -29,6 +29,7 @@ const Home = () => {
           url_image="src/assets/images/buttton-enter.png"
           alt_img="Botón para entrar a la galería"
           onClick={handleButtonClick}
+          url_a="./main-gallery"
         />
       </div>
       {isLoading && <Preloader />}
