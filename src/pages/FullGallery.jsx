@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getMemes, deleteMeme } from '../services/services';
 import AudioPlayer from '../components/AudioPlayer';
 import backgroundImage from '../assets/images/FullGallery.png';
+import MemeViewFull from "../components/MemeViewFull"
 
 const FullGallery = () => {
   const [data, setData] = useState([]);
@@ -86,45 +87,15 @@ const FullGallery = () => {
         ))}
       </div>
 
-      {/* Mostrar imagen grande con overlay al hacer clic en una miniatura */}
+      {/* Mostrar MemeView con imagen grande, navegación y eliminación */}
       {showLargeImage && selectedMeme && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
-          onClick={handleClose}
-        >
-          <div className="relative">
-            <img
-              src={selectedMeme.image}
-              alt={selectedMeme.name}
-              className="w-120 h-120 object-cover"
-              onClick={(e) => e.stopPropagation()}
-            />
-
-            {/* Botón de flecha izquierda */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handlePrevious(); }}
-              className="absolute left-0 ml-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
-            >
-              &#9664;
-            </button>
-
-            {/* Botón de flecha derecha */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handleNext(); }}
-              className="absolute right-0 mr-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
-            >
-              &#9654;
-            </button>
-
-            {/* Botón de eliminación */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handleDelete(selectedMeme.id); }}
-              className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white p-2 rounded-full shadow-md hover:bg-red-600"
-            >
-              🗑️
-            </button>
-          </div>
-        </div>
+        <MemeViewFull
+          currentImage={selectedMeme}  // <-- Asegúrate de que currentImage sea el meme seleccionado
+          handleClose={handleClose}
+          handleNext={handleNext}
+          handlePrev={handlePrevious}
+          handleDelete={() => handleDelete(selectedMeme.id)}  // <-- Corregimos esta función
+        />
       )}
     </div>
   );
