@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { replace, useNavigate } from 'react-router-dom';
 import UploadWidget from '../components/UploadWidget';
 
 const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
@@ -32,7 +32,7 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
       };
 
       await onSubmit(memeData);
-      navigate('/full-gallery');
+      navigate('/full-gallery', {replace:true});
     } catch (error) {
       console.error(error.message);
     }
@@ -62,6 +62,7 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
           />
           {/* Mostrar un mensaje de error si se ha intentado enviar el formulario sin subir una imagen */}
           {(!isEditing && submitted && imageUrl === '' && <span className="text-red-500 text-lg">La imagen es obligatoria</span>)}
+          <img src={imageUrl} alt="" className='block mx-auto w-40' />
         </div>
         <button type="submit" className="block mx-auto bg-brown-simp w-48 py-3 border border-black rounded-lg shadow-xl hover:bg-amber-800 transition-all duration-300 active:scale-90">
           <p className='font-simpson-title text-lg text-yellow-simp drop-shadow-simpson-outline'>

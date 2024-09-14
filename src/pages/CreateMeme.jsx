@@ -5,8 +5,8 @@ import Form from '../components/Form';
 const CreateMeme = () => {
   const handleCreate = async (memeData) => {
     try {
-      console.log('Meme data:', memeData);
       await createMeme(memeData);
+      alert("Meme creado correctamente.")
     } catch (error) {
       console.error('Error creating meme:', error.message);
     }
