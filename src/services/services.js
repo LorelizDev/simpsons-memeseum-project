@@ -14,25 +14,26 @@ export const getMemes = async () => {
 };
 
 // POST
-export const createMeme = async () => {
+export const createMeme = async (data) => {
   try {
-    const response = await axios.post(URL_API);
+    const response = await axios.post(URL_API, data);
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
+    console.error('Error creating meme:', error);
+    return null;
   }
 };
 
-
-//PUT
-
-//DELETE
-export const deleteMeme = async (id) => {
+// REQUEST DELETE
+ // Función para eliminar un meme por ID
+ export const deleteMeme = async (id) => {
+  if (confirm('¿Estás seguro de que quieres eliminar este meme?')) {
     try {
       // Hacemos una solicitud DELETE a la API
       await axios.delete(`${URL_API}/${id}`);
     } catch (error) {
       console.error('Error deleting meme:', error);
+    
     }
+  }
 };
