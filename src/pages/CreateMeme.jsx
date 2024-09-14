@@ -1,4 +1,4 @@
-import Form from '../components/Form';
+import Form from "../components/Form";
 
 const CreateMeme = () => {
   return (
@@ -8,4 +8,4 @@ const CreateMeme = () => {
   )
 }
 
-export default CreateMeme
+export default CreateMeme;
