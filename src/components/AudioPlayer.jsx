@@ -1,18 +1,17 @@
 // AudioPlayer.js
 import React, { useRef, useState, useEffect } from 'react';
-import audioFile from '../assets/sounds/SimpsonsIntro.mp3';
 
-const AudioPlayer = () => {
+const AudioPlayer = ({ src }) => {
   const audioRef = useRef(null); // useRef siempre devuelve un objeto con una propiedad llamada 'current'
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (audioRef.current) {
+    if (audioRef.current && src) {
       audioRef.current.volume = 0.1;
       audioRef.current.play();
       setIsPlaying(true);
     }
-  }, []);
+  }, [src]); // Dependencia en 'src' para reproducir cuando cambia el audio
 
   const togglePlayPause = () => {
     if (audioRef.current.paused) {
@@ -26,7 +25,7 @@ const AudioPlayer = () => {
 
   return (
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-10">
-      <audio ref={audioRef} src={audioFile} loop />
+      <audio ref={audioRef} src={src} loop />
       <button
         onClick={togglePlayPause}
         className="bg-gray-500 text-white px-2 py-1 rounded hover:bg-blue-700"
@@ -38,4 +37,5 @@ const AudioPlayer = () => {
 };
 
 export default AudioPlayer;
+
 
