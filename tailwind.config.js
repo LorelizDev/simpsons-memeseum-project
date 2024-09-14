@@ -23,7 +23,7 @@ export default {
         'yellow-simp': '#f8db27',
         'blue-simp': '#2f64d6',
         'brown-simp':'#9c5b01',
-        'pink-simp': '#ff81c1',
+        'pink-simp': '#FD43A6',
       },
       dropShadow: {
         'simpson-title-ds': [
