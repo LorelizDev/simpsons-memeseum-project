@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ButtonIcon from './ButtonIcon';
 
 const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete, handleEdit, showIcons=true }) => {
   if (!currentImage) return null;
+  
+  const [isVisible, setIsVisible] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [response, setResponse] = useState(null);
+
+
+  useEffect(() => {
+    if (currentImage) {
+      setIsVisible(true);
+    }
+  }, [currentImage]);
+
+
+  const handleAnimationEnd = () => {
+    if (!currentImage) {
+      setIsVisible(false);
+    }
+  };
+
+  const handleImageClick = () => {
+    setIsFlipped(true);
+  };
+
+  const handleResponse = (answer) => {
+    setResponse(answer);
+    setTimeout(() => {
+      setIsFlipped(false);
+      setResponse(null);
+    }, 200);
+  };
 
   return (
     <>
@@ -19,15 +49,28 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
         onClick={handleClose}
       >
         <div
-          className="relative"
-          onClick={(e) => e.stopPropagation()} // Evita que el clic en el contenedor cierre el modal
+          className={`relative transition-transform transform duration-500 ease-in-out ${
+            isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+          onAnimationEnd={handleAnimationEnd}
         >
-          <img
-            src={currentImage.src}
-            alt={`Imagen Grande ${currentImage.id}`}
-            className="w-120 h-120 object-cover cursor-pointer"
-            onClick={(e) => e.stopPropagation()} // Evita que el clic en la imagen cierre el modal
-          />
+          {!isFlipped ? (
+            <img
+              src={currentImage.src}
+              alt={`Imagen Grande ${currentImage.id}`}
+              className="w-120 h-120 object-cover cursor-pointer"
+              onClick={handleImageClick}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center w-120 h-120 bg-white rounded-md">
+              <p className="text-blue mb-2">¿Te gustó el meme?</p>
+              <div className="flex space-x-2">
+                <button onClick={() => handleResponse('sí')} className="bg-green-500 text-white px-3 py-1 rounded">Sí</button>
+                <button onClick={() => handleResponse('no')} className="bg-red-500 text-white px-2 py-1 rounded">No</button>
+              </div>
+            </div>
+          )}
 
           {/* Condicional para mostrar o no los íconos de papelera y lápiz */}
           {showIcons && (
