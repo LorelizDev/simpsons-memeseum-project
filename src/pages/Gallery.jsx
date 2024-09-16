@@ -26,13 +26,13 @@ const Gallery = () => {
   const [showLargeImage, setShowLargeImage] = useState(false);
 
   const initialImages = [
-    { id: '1', src: initialImage1, top: '27%', left: '0%', width: '25%', height: '45%' },
-    { id: '2', src: initialImage2, top: '42%', left: '35%', width: '8%', height: '17%' },
-    { id: '4', src: initialImage4, top: '42%', left: '61.5%', width: '8%', height: '17%' },
-    { id: '6', src: initialImage6, top: '30%', left: '20%', width: '15%', height: '40%' },
-    { id: '7', src: initialImage7, top: '27%', left: '74%', width: '25%', height: '45%' },
-    { id: '8', src: initialImage8, top: '30%', left: '67%', width: '15%', height: '40%' },
-    { id: '9', src: initialImage9, top: '49%', left: '50.2%', width: '4.1%', height: '12%' },
+    { id: '1', image: initialImage1, top: '27%', left: '0%', width: '25%', height: '45%' },
+    { id: '2', image: initialImage2, top: '42%', left: '35%', width: '8%', height: '17%' },
+    { id: '4', image: initialImage4, top: '42%', left: '61.5%', width: '8%', height: '17%' },
+    { id: '6', image: initialImage6, top: '30%', left: '20%', width: '15%', height: '40%' },
+    { id: '7', image: initialImage7, top: '27%', left: '74%', width: '25%', height: '45%' },
+    { id: '8', image: initialImage8, top: '30%', left: '67%', width: '15%', height: '40%' },
+    { id: '9', image: initialImage9, top: '49%', left: '50.2%', width: '4.1%', height: '12%' },
   ];
 
   const mainMemes = [meme1, meme2, meme4, meme6, meme7, meme8];
@@ -93,7 +93,7 @@ const Gallery = () => {
               }}
             >
               <img
-                src={initialImage.src}
+                src={initialImage.image}
                 alt={`Cuadro Inicial ${initialImage.id}`}
                 className="w-full h-full object-contain cursor-pointer transition-transform duration-300 hover:scale-400"
               />
@@ -101,7 +101,7 @@ const Gallery = () => {
           ) : (
             <img
               key={initialImage.id}
-              src={initialImage.src}
+              src={initialImage.image}
               alt={`Cuadro Inicial ${initialImage.id}`}
               className={`absolute object-contain cursor-pointer transition-transform duration-300 2xl:block hidden ${
                 initialImage.id === '9' ? '' : 'hover:brightness-110 hover:scale-105'
@@ -120,7 +120,7 @@ const Gallery = () => {
 
       {showLargeImage && currentMeme && (
         <MemeView
-          currentImage={{ src: currentMeme }}
+          currentImage={{ image: currentMeme }}
           handleClose={handleClose}
           handleNext={handleNext}
           handlePrev={handlePrev}
@@ -132,22 +132,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ButtonIcon from './ButtonIcon';
+import { updateMeme } from '../services/services';
 
 const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete, handleEdit, showIcons=true }) => {
   if (!currentImage) return null;
@@ -8,9 +9,17 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
   const [isVisible, setIsVisible] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [response, setResponse] = useState(null);
-
+  const [like, setLike] = useState(false);
+  const [dislike, setDislike] = useState(false);
 
   useEffect(() => {
+    // Cargar estado de like/dislike de localStorage
+    const localLike = localStorage.getItem(`like-${currentImage.id}`);
+    const localDislike = localStorage.getItem(`dislike-${currentImage.id}`);
+    
+    if (localLike === 'true') setLike(true);
+    if (localDislike === 'true') setDislike(true);
+
     if (currentImage) {
       setIsVisible(true);
     }
@@ -27,12 +36,39 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
     setIsFlipped(true);
   };
 
-  const handleResponse = (answer) => {
+  const handleResponse = async (answer) => {
     setResponse(answer);
+    let updatedMeme = {
+      ...currentImage
+    };
+    
+    if (answer === 'sí') {
+      setLike(true);
+      setDislike(false); // Reinicia el dislike si se ha dado like
+      updatedMeme = {
+        ...updatedMeme,
+        like: updatedMeme.like + 1 // Incrementa el like en la base de datos
+      };
+      localStorage.setItem(`like-${currentImage.id}`, 'true');
+      localStorage.removeItem(`dislike-${currentImage.id}`);
+    } else if (answer === 'no') {
+      setDislike(true);
+      setLike(false); // Reinicia el like si se ha dado dislike
+      updatedMeme = {
+        ...updatedMeme,
+        dislike: updatedMeme.dislike + 1 // Incrementa el dislike en la base de datos
+      };
+      localStorage.setItem(`dislike-${currentImage.id}`, 'true');
+      localStorage.removeItem(`like-${currentImage.id}`);
+    }
+
+    // Actualiza el meme en la base de datos
+    await updateMeme(currentImage.id, updatedMeme);
+
     setTimeout(() => {
       setIsFlipped(false);
-      setResponse(null);
-    }, 200);
+      setResponse(null)
+    }, 2000);
   };
 
   return (
@@ -57,7 +93,7 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
         >
           {!isFlipped ? (
             <img
-              src={currentImage.src}
+              src={currentImage.image}
               alt={`Imagen Grande ${currentImage.id}`}
               className="w-120 h-120 object-cover cursor-pointer"
               onClick={handleImageClick}
@@ -69,6 +105,7 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
                 <button onClick={() => handleResponse('sí')} className="bg-green-500 text-white px-3 py-1 rounded">Sí</button>
                 <button onClick={() => handleResponse('no')} className="bg-red-500 text-white px-2 py-1 rounded">No</button>
               </div>
+              <p className='text-5xl'>{like? '🩷' : '' || dislike? '💔' : ''}</p>
             </div>
           )}
 
@@ -77,12 +114,12 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
             <div className="absolute top-4 right-4 flex space-x-2 z-30">
               <ButtonIcon 
                 icon={faTrash}
-                onClick={(e) => {handleDelete(currentImage.id);}}
+                onClick={() => handleDelete(currentImage.id)}
                 className={'text-[#f4082c]'}
               />
               <ButtonIcon 
                 icon={faEdit}
-                onClick={(e) => {handleEdit(currentImage.id)}}
+                onClick={() => handleEdit(currentImage.id)}
                 className={'text-white'}
               />
             </div>
@@ -106,22 +143,3 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
 };
 
 export default MemeView;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

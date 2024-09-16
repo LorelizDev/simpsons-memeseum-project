@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMemes, deleteMeme, updateMeme } from '../services/services';
+import { getMemes, deleteMeme } from '../services/services';
 import backgroundImage from '../assets/images/FullGallery.png';
 import MemeView from '../components/MemeView';
 import { useNavigate } from 'react-router-dom';
@@ -95,15 +95,15 @@ const FullGallery = () => {
 
       {showLargeImage && selectedMeme && (
       <MemeView
-    currentImage={{ src: selectedMeme.image, id: selectedMeme.id }} // Asegúrate de pasar el id
-    handleClose={handleClose}
-    handleNext={handleNext}
-    handlePrev={handlePrevious}
-    handleDelete={handleDelete}
-    handleEdit={handleEdit}
-    showIcons={true}
-  />
-)}
+        currentImage={{ ...selectedMeme }}
+        handleClose={handleClose}
+        handleNext={handleNext}
+        handlePrev={handlePrevious}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+        showIcons={true}
+      />
+      )}
 
     </div>
   );

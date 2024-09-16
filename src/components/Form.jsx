@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { replace, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UploadWidget from '../components/UploadWidget';
 
 const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
@@ -9,6 +9,8 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
   });
   const [imageUrl, setImageUrl] = useState(initialData.image || '');
   const [submitted, setSubmitted] = useState(false); // Estado para rastrear si el formulario ha sido enviado
+  const [like, setLike] = useState(initialData.like);
+  const [dislike, setDislike] = useState(initialData.dislike);
   const navigate = useNavigate();
 
   // Pre-rellenar los valores del formulario cuando se edita
@@ -16,6 +18,10 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
     if (isEditing && initialData) {
       setValue('name', initialData.name);
       setImageUrl(initialData.image || '');
+    } else {
+      // Inicializar like/dislike en 0 si se está creando un meme
+      setLike(0);
+      setDislike(0);
     }
   }, [isEditing, initialData, setValue]);
 
@@ -29,6 +35,8 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
       const memeData = {
         name: data.name,
         image: imageUrl,
+        like: like,
+        dislike: dislike
       };
 
       await onSubmit(memeData);
