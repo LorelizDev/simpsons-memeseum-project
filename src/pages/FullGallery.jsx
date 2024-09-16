@@ -1,14 +1,14 @@
-// src/pages/FullGallery.jsx
 import React, { useState, useEffect } from 'react';
-import { getMemes, deleteMeme } from '../services/services';
-import AudioPlayer from '../components/AudioPlayer';
+import { getMemes, deleteMeme, updateMeme } from '../services/services';
 import backgroundImage from '../assets/images/FullGallery.png';
-import MemeViewFull from "../components/MemeViewFull"
+import MemeView from '../components/MemeView';
+import { useNavigate } from 'react-router-dom';
 
 const FullGallery = () => {
   const [data, setData] = useState([]);
   const [selectedMeme, setSelectedMeme] = useState(null);
   const [showLargeImage, setShowLargeImage] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadMemes = async () => {
@@ -30,14 +30,24 @@ const FullGallery = () => {
   };
 
   const handleDelete = async (memeId) => {
-    try {
-      await deleteMeme(memeId);
-      setData(data.filter((meme) => meme.id !== memeId));
-      handleClose();
-    } catch (error) {
-      console.error('Error al eliminar el meme:', error);
-      alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
+    const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este meme?');
+    if (confirmDelete) {
+      try {
+        await deleteMeme(memeId);
+        setData(data.filter((meme) => meme.id !== memeId));
+        handleClose();
+      } catch (error) {
+        console.error('Error al eliminar el meme:', error);
+        alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
+      }
+    } else {
+      console.log('Eliminación cancelada');
     }
+  };
+
+  const handleEdit = (memeId) => {
+    console.log('Navigating to edit page');
+    navigate(`/edit/${memeId}`);
   };
 
   const handleNext = () => {
@@ -60,21 +70,17 @@ const FullGallery = () => {
     <div
       className="relative flex flex-col items-center justify-center h-[135vh]"
       style={{
-        backgroundImage: `url(${backgroundImage})`, // Aplica la imagen de fondo
-        backgroundSize: 'cover', // Ajusta la imagen para cubrir todo el contenedor
-        backgroundPosition: 'left center', // Mueve la imagen hacia la izquierda
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'left center',
       }}
     >
-      {/* Reproductor de audio */}
-      <AudioPlayer />
-
-      {/* Mostrar todas las miniaturas de los memes en un cuadro */}
       <div className="absolute left-4 top-4 flex flex-wrap space-x-4">
         {data.map((meme) => (
           <div
             key={meme.id}
-            className="border-4 border-blue-500 shadow-xl p-6 m-6 rounded-lg bg-yellow-200 flex flex-col items-center" // Cambios en el color y tamaño del cuadro
-            style={{ width: '150px', height: '175px' }} // Personaliza el tamaño del cuadro
+            className="border-4 border-blue-500 shadow-xl p-6 m-6 rounded-lg bg-yellow-200 flex flex-col items-center"
+            style={{ width: '150px', height: '175px' }}
           >
             <img
               src={meme.image}
@@ -82,23 +88,26 @@ const FullGallery = () => {
               className="w-full h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
               onClick={() => handleClick(meme)}
             />
-            <h3 className="text-center mt-2 text-sm font-bold">{meme.name}</h3> {/* Nombre del meme */}
+            <h3 className="text-center mt-2 text-sm font-bold">{meme.name}</h3>
           </div>
         ))}
       </div>
 
-      {/* Mostrar MemeView con imagen grande, navegación y eliminación */}
       {showLargeImage && selectedMeme && (
-        <MemeViewFull
-          currentImage={selectedMeme}  // <-- Asegúrate de que currentImage sea el meme seleccionado
-          handleClose={handleClose}
-          handleNext={handleNext}
-          handlePrev={handlePrevious}
-          handleDelete={() => handleDelete(selectedMeme.id)}  // <-- Corregimos esta función
-        />
-      )}
+      <MemeView
+    currentImage={{ src: selectedMeme.image, id: selectedMeme.id }} // Asegúrate de pasar el id
+    handleClose={handleClose}
+    handleNext={handleNext}
+    handlePrev={handlePrevious}
+    handleDelete={handleDelete}
+    handleEdit={handleEdit}
+    showIcons={true}
+  />
+)}
+
     </div>
   );
 };
 
 export default FullGallery;
+

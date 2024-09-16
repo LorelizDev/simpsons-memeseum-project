@@ -1,8 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ButtonIcon from './ButtonIcon';
-
 
 const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDelete, handleEdit, showIcons=true }) => {
   if (!currentImage) return null;
@@ -20,26 +18,28 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
         className="fixed inset-0 flex items-center justify-center z-20"
         onClick={handleClose}
       >
-        <div className="relative">
+        <div
+          className="relative"
+          onClick={(e) => e.stopPropagation()} // Evita que el clic en el contenedor cierre el modal
+        >
           <img
             src={currentImage.src}
             alt={`Imagen Grande ${currentImage.id}`}
             className="w-120 h-120 object-cover cursor-pointer"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Evita que el clic en la imagen cierre el modal
           />
 
           {/* Condicional para mostrar o no los íconos de papelera y lápiz */}
-          {/* Si no se quiere mostrar los iconos se le da el valor false a showIcons por props (showIcons=False) */}
           {showIcons && (
             <div className="absolute top-4 right-4 flex space-x-2 z-30">
               <ButtonIcon 
                 icon={faTrash}
-                onClick={(e) => {e.stopPropagation(); handleDelete(currentImage.id);}}
+                onClick={(e) => {handleDelete(currentImage.id);}}
                 className={'text-[#f4082c]'}
               />
               <ButtonIcon 
                 icon={faEdit}
-                onClick={(e) => {e.stopPropagation();handleEdit(currentImage.id)}}
+                onClick={(e) => {handleEdit(currentImage.id)}}
                 className={'text-white'}
               />
             </div>
@@ -48,12 +48,12 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
           {/* Flechas de navegación */}
           <ButtonIcon 
             icon={faArrowLeft}
-            onClick={handlePrev}
+            onClick={(e) => {e.stopPropagation(); handlePrev();}}
             className={'absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white'}
           />
           <ButtonIcon 
             icon={faArrowRight}
-            onClick={handleNext}
+            onClick={(e) => {e.stopPropagation(); handleNext();}}
             className={'absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white'}
           />
         </div>
@@ -63,6 +63,7 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
 };
 
 export default MemeView;
+
 
 
 
