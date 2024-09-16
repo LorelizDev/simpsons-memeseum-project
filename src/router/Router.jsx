@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import CreateMeme from "../pages/CreateMeme";
 import FullGallery from "../pages/FullGallery";
 import Gallery from "../pages/Gallery";
+import EditMeme from "../pages/EditMeme"
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: 'main-gallery',
         element: <Gallery />
+      },
+      {
+        path: 'edit/:id',
+        element: <EditMeme />
       }
     ]
   }
