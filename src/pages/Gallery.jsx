@@ -51,13 +51,11 @@ const Gallery = () => {
     setShowLargeImage(true);
   };
 
-  const handleNext = (e) => {
-    e.stopPropagation();
+  const handleNext = () => {
     setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
   };
 
-  const handlePrev = (e) => {
-    e.stopPropagation();
+  const handlePrev = () => {
     setSelectedIndex((prevIndex) => (prevIndex - 1 + initialImages.length) % initialImages.length);
   };
 
