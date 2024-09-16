@@ -17,7 +17,7 @@ import S5 from '../assets/images/S5.jpg';
 
 import MemeView from '../components/MemeView';
 import AudioPlayer from '../components/AudioPlayer';
-import audioFile from '../assets/sounds/Simpsonsintro_1.mp3';
+import audioFile from '../assets/sounds/SimpsonsIntro_1.mp3';
 import { Link } from 'react-router-dom';
 
 const Gallery = () => {
