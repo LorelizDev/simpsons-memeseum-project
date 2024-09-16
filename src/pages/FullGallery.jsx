@@ -75,23 +75,28 @@ const FullGallery = () => {
         backgroundPosition: 'left center',
       }}
     >
-      <div className="absolute left-4 top-4 flex flex-wrap space-x-4">
-        {data.map((meme) => (
-          <div
-            key={meme.id}
-            className="border-4 border-blue-500 shadow-xl p-6 m-6 rounded-lg bg-yellow-200 flex flex-col items-center"
-            style={{ width: '150px', height: '175px' }}
-          >
-            <img
-              src={meme.image}
-              alt={meme.name}
-              className="w-full h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => handleClick(meme)}
-            />
-            <h3 className="text-center mt-2 text-sm font-bold">{meme.name}</h3>
-          </div>
-        ))}
-      </div>
+      <div
+  className="absolute left-4 top-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center overflow-y-scroll"
+  style={{ maxHeight: '370px', width: '100%' }} // Ajusta la altura y haz que el contenedor sea responsive
+>
+  {data.map((meme) => (
+    <div
+      key={meme.id}
+      className="border-4 border-blue-500 shadow-xl p-6 rounded-lg bg-yellow-200 flex flex-col items-center"
+      style={{ width: '150px', height: '175px' }}
+    >
+      <img
+        src={meme.image}
+        alt={meme.name}
+        className="w-full h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+        onClick={() => handleClick(meme)}
+      />
+      <h3 className="text-center mt-2 text-sm font-bold">{meme.name}</h3>
+    </div>
+  ))}
+</div>
+
+
 
       {showLargeImage && selectedMeme && (
       <MemeView

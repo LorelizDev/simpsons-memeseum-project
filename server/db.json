@@ -4,9 +4,8 @@
       "name": "Meme1",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme11_an6ov0.png",
       "id": "1",
-      "like":0,
-      "dislike":0
-    
+      "like": 0,
+      "dislike": 0
     },
     {
       "id": "2",
