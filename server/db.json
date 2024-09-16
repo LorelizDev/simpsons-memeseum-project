@@ -2,7 +2,7 @@
   "memes": [
     {
       "name": "Meme1",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725886264/cuadro1_jccbdi.png",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme11_an6ov0.png",
       "id": "1",
       "like":0,
       "dislike":0
@@ -11,37 +11,37 @@
     {
       "id": "2",
       "name": "Meme2",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro2_ifnrux.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme22_cyefxr.png"
     },
     {
       "id": "3",
       "name": "Meme3",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro3_n9lclf.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726491285/meme33_n992be.jpg"
     },
     {
       "id": "4",
       "name": "Meme4",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873557/cuadro4_alitnr.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme44_dnove9.png"
     },
     {
       "id": "5",
       "name": "Meme5",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873558/cuadro5_vt70lc.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726491328/meme55_jqad5c.png"
     },
     {
       "id": "6",
       "name": "Meme6",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro6_vh8ea3.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme66_oquhik.png"
     },
     {
       "id": "7",
       "name": "Meme7",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro7_imupmf.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme77_hdj2dl.png"
     },
     {
       "id": "8",
       "name": "Meme8",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873555/cuadro8_nk23ai.png"
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme88_qjz6rk.png"
     },
     {
       "id": "9",
