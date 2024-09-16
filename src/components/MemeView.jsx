@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
+const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, showTrash, showEdit }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
-const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
+  useEffect(() => {
+    if (currentImage) {
+      setIsVisible(true);
+    }
+  }, [currentImage]);
+
   if (!currentImage) return null;
 
+  const handleAnimationEnd = () => {
+    if (!currentImage) {
+      setIsVisible(false);
+    }
+  };
 
   return (
     <>
@@ -20,14 +32,18 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
         className="fixed inset-0 flex items-center justify-center z-20"
         onClick={handleClose}
       >
-        <div className="relative">
+        <div
+          className={`relative transition-transform transform duration-500 ease-in-out ${
+            isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+          onAnimationEnd={handleAnimationEnd}
+        >
           <img
             src={currentImage.src}
             alt={`Imagen Grande ${currentImage.id}`}
             className="w-120 h-120 object-cover cursor-pointer"
-            onClick={(e) => e.stopPropagation()}
           />
-
 
           {/* Flechas de navegación */}
           <button
@@ -49,6 +65,10 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev }) => {
 };
 
 export default MemeView;
+
+
+
+
 
 
 

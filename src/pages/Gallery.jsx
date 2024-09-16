@@ -9,9 +9,7 @@ import initialImage8 from '../assets/images/cuadro8p.png';
 import initialImage9 from '../assets/images/enter1111.png';
 import meme1 from '../assets/images/meme1.png';
 import meme2 from '../assets/images/meme2.png';
-import meme3 from '../assets/images/meme3.png';
 import meme4 from '../assets/images/meme4.png';
-import meme5 from '../assets/images/meme5.png';
 import meme6 from '../assets/images/meme6.png';
 import meme7 from '../assets/images/meme7.png';
 import meme8 from '../assets/images/meme8.png';
@@ -79,10 +77,10 @@ const Gallery = () => {
         <img
           src={S5}
           alt="Imagen Principal"
-          className="w-full h-full object-cover"
+          className="w-full h-full container"
         />
 
-        {/* Miniaturas encima de la imagen principal */}
+        {/* Cuadros */}
         {initialImages.map((initialImage, index) => (
           initialImage.id === '9' ? (
             <Link
