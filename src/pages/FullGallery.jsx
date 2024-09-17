@@ -77,7 +77,7 @@ const FullGallery = () => {
     >
       <div
   className="absolute left-4 top-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center overflow-y-scroll"
-  style={{ maxHeight: '370px', width: '100%' }} // Ajusta la altura y haz que el contenedor sea responsive
+  style={{ maxHeight: '370px', width: '100%' }}
 >
   {data.map((meme) => (
     <div
