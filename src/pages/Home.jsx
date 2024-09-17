@@ -28,7 +28,7 @@ const Home = () => {
       <img src="src/assets/images/front-museum.jpg" alt="Fachada de Simpson's Memeseum" className='max-h-full border-none rounded-3xl' />
       <div className='absolute h-1/5 bottom-[32%] active:scale-90 active:hue-rotate-30'>
         <ButtonImage 
-          url_image="src/assets/images/buttton-enter.png"
+          url_img="src/assets/images/buttton-enter.png"
           alt_img="Botón para entrar a la galería"
           onClick={handleButtonClick}
           url_a="./main-gallery"
