@@ -9,13 +9,15 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "api": "json-server --watch server/db.json --port 3001",
-    "test": "vitest" 
+    "test": "vitest"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@vitejs/plugin-react": "^4.3.1",
     "axios": "^1.7.7",
     "json-server": "^1.0.0-beta.2",
+    "punycode": "^2.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
@@ -31,7 +33,7 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "axios-mock-adapter": "^2.0.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.10.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
@@ -42,5 +44,4 @@
     "vite": "^5.4.2",
     "vitest": "^2.1.1"
   }
-  
 }
