@@ -69,6 +69,13 @@
       "name": "Homer loco",
       "like": 0,
       "dislike": 0
+    },
+    {
+      "id": "bcd7",
+      "name": "mememe",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726578756/t7de2tqt2xqwtnyhl5qd.jpg",
+      "like": 0,
+      "dislike": 0
     }
   ]
 }

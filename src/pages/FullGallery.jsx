@@ -35,6 +35,7 @@ const FullGallery = () => {
       try {
         await deleteMeme(memeId);
         setData(data.filter((meme) => meme.id !== memeId));
+        alert("El meme ha sido eliminado correctamente");
         handleClose();
       } catch (error) {
         console.error('Error al eliminar el meme:', error);
