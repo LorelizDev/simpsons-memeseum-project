@@ -11,8 +11,8 @@ const Footer = () => {
         <ButtonImage 
 					url_a='https://github.com/LorelizDev/simpsons-memeseum-project.git'
 					target='_blank'
-					url_image='src/assets/images/github-simpson.png'
-					alt_image='Imagen de GitHub con forma de personaje de Los Simpson'
+					url_img='src/assets/images/github-simpson.png'
+					alt_img='Imagen de GitHub con forma de personaje de Los Simpson'
 				/>
       </div>
     </footer>

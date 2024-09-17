@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className='w-28 ml-3'>
         <ButtonImage 
           url_a='/'
-          url_image='src/assets/images/logo-simpson-removebg.png'
+          url_img='src/assets/images/logo-simpson-removebg.png'
           alt_img="Logo Simpson's Memesuem"
         />
       </div>
