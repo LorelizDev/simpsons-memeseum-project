@@ -40,6 +40,9 @@ export default {
           '-0.5px 0.5px black',
         ]
       },
+      screens: {
+        'xs': '580px'
+      }
     },
   },
   plugins: [],
