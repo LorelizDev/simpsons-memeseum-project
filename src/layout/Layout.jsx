@@ -15,8 +15,8 @@ const Layout = () => {
           <main className='grid col-span-3 ml-8 max-xs:flex max-xs:mx-8'>
             <Outlet />
           </main>
-          <div className='max-xs:hidden ml-8'>
-            <img src="/src/assets/images/curious-bart.png" alt="Bart asomado" className='w-full sticky top-[10vh]'/>
+          <div className='max-xs:hidden ml-8 flex flex-col items-end'>
+            <img src="/src/assets/images/curious-bart.png" alt="Bart asomado" className='w-[80%] sticky top-[15vh]'/>
           </div>
         </div>
       </div>
