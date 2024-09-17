@@ -15,4 +15,21 @@
     .img-bright-yellow:hover {
       filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 0, 0.7));
     }
+    
+    /* Estilos para la barra de scroll completa */
+    ::-webkit-scrollbar {
+      width: 8px; /* Ancho de la barra de scroll */
+      background-color: #f5f5f5; /* Color de fondo de la barra */
+    }
+
+    /* Estilos para el "thumb" (parte que se desplaza) */
+    ::-webkit-scrollbar-thumb {
+      background-color: #3490dc; /* Color del "thumb" */
+      border-radius: 10px; /* Esquinas redondeadas */
+    }
+
+    /* Opcional: Estilo al hacer hover sobre el thumb */
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #6574cd; /* Cambiar color al hacer hover */
+    }
   }
