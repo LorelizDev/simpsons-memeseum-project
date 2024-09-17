@@ -16,7 +16,7 @@ const CreateMeme = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="mx-auto p-4 w-4/6 max-md:w-full">
       <Form title={'Publicar Meme'} onSubmit={handleCreate} />
       <div className="flex justify-center mt-4"> {/* Contenedor para centrar el botón */}
         <button

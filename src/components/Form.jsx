@@ -49,7 +49,7 @@ const Form = ({ title, onSubmit, initialData = {}, isEditing = false }) => {
   return (
     <div>
       <h2 className='font-simpson-title text-center text-4xl text-pink-simp drop-shadow-simpson-title-ds mb-10'>{title}</h2>
-      <form onSubmit={handleSubmit(handleOnSubmit)} className="w-1/2 mx-auto p-10 bg-gray-100 shadow-lg rounded-lg font-simpson-p">
+      <form onSubmit={handleSubmit(handleOnSubmit)} className="mx-auto p-10 bg-gray-100 shadow-lg rounded-lg font-simpson-p">
         <div className="mb-6">
           <label htmlFor="name" className="block text-gray-700 text-2xl font-semibold mb-2">Nombra tu meme</label>
           <input

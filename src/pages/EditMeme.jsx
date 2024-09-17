@@ -34,7 +34,7 @@ const EditMeme = () => {
   if (!initialData) return <p className='block mx-auto font-simpson-p text-3xl'>Loading...</p>;
 
   return (
-    <div className="p-4">
+    <div className="mx-auto p-4 w-4/6 max-md:w-full">
       <Form title={'Actualizar Meme'} onSubmit={handleUpdate} initialData={initialData} isEditing={true} />
       <div className="flex justify-center mt-4"> 
         <button
