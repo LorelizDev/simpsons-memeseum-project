@@ -13,6 +13,7 @@ export default {
       },
       screens: {
         '2xl': '1200px',
+        'xs': '580px',
       },
       
       fontFamily: {
@@ -39,9 +40,6 @@ export default {
           '0.5px -0.5px black',
           '-0.5px 0.5px black',
         ]
-      },
-      screens: {
-        'xs': '580px'
       }
     },
   },
