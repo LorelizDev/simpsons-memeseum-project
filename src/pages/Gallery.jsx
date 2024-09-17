@@ -32,7 +32,7 @@ const Gallery = () => {
     { id: '6', image: initialImage6, top: '30%', left: '20%', width: '15%', height: '40%' },
     { id: '7', image: initialImage7, top: '27%', left: '74%', width: '25%', height: '45%' },
     { id: '8', image: initialImage8, top: '30%', left: '67%', width: '15%', height: '40%' },
-    { id: '9', image: initialImage9, top: '49%', left: '50.2%', width: '4.1%', height: '12%' },
+    { id: '9', image: initialImage9, top: '47%', left: '50.2%', width: '4.1%', height: '12%' },
   ];
 
   const mainMemes = [meme1, meme2, meme4, meme6, meme7, meme8];
@@ -67,7 +67,7 @@ const Gallery = () => {
   const currentMeme = selectedIndex !== null ? mainMemes[selectedIndex] : null;
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen">
+    <div className="relative flex flex-col items-center justify-center max-sm:h-full">
       <AudioPlayer src={audioFile} />
 
       {/* Imagen Principal */}
@@ -95,7 +95,7 @@ const Gallery = () => {
               <img
                 src={initialImage.image}
                 alt={`Cuadro Inicial ${initialImage.id}`}
-                className="w-full h-full object-contain cursor-pointer transition-transform duration-300 hover:scale-400"
+                className="w-full h-full object-contain cursor-pointer transition-transform duration-300 max-lg:scale-[200%] hover:scale-400"
               />
             </Link>
           ) : (
@@ -103,7 +103,7 @@ const Gallery = () => {
               key={initialImage.id}
               src={initialImage.image}
               alt={`Cuadro Inicial ${initialImage.id}`}
-              className={`absolute object-contain cursor-pointer transition-transform duration-300 2xl:block hidden ${
+              className={`absolute object-contain cursor-pointer transition-transform duration-300 ${
                 initialImage.id === '9' ? '' : 'hover:brightness-110 hover:scale-105'
               }`}
               style={{

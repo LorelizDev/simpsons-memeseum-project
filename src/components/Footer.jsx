@@ -4,8 +4,8 @@ import ButtonImage from './ButtonImage'
 const Footer = () => {
   return (
     <footer className='h-20 flex justify-between items-center border-t border-black bg-yellow-simp shadow-[0_-4px_4px_#475569] px-6 mt-12'>
-      <div>
-				<p className='font-simpson-title text-2xl'>&copy;2024 - Simpson's Memeseum</p>
+      <div className=''>
+				<p className='font-simpson-title text-2xl max-xs:text-base'>&copy;2024 - Simpson's Memeseum</p>
 			</div>
       <div className='h-36 relative -top-14'>
         <ButtonImage 
