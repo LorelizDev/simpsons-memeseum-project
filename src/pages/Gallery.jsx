@@ -103,7 +103,7 @@ const Gallery = () => {
               key={initialImage.id}
               src={initialImage.image}
               alt={`Cuadro Inicial ${initialImage.id}`}
-              className={`absolute object-contain cursor-pointer transition-transform duration-300 max-lg:hidden ${
+              className={`absolute object-contain cursor-pointer transition-transform duration-300 ${
                 initialImage.id === '9' ? '' : 'hover:brightness-110 hover:scale-105'
               }`}
               style={{

@@ -15,7 +15,7 @@ const Layout = () => {
           <main className='grid col-span-3 ml-8 max-xs:flex max-xs:mx-8'>
             <Outlet />
           </main>
-          <div className='max-xs:hidden'>
+          <div className='max-xs:hidden ml-8'>
             <img src="/src/assets/images/curious-bart.png" alt="Bart asomado" className='w-full sticky top-[10vh]'/>
           </div>
         </div>

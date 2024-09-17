@@ -19,12 +19,12 @@
     /* Estilos para la barra de scroll completa */
     ::-webkit-scrollbar {
       width: 8px; /* Ancho de la barra de scroll */
-      background-color: #f5f5f5; /* Color de fondo de la barra */
+      background-color: #3490dc; /* Color de fondo de la barra */
     }
 
     /* Estilos para el "thumb" (parte que se desplaza) */
     ::-webkit-scrollbar-thumb {
-      background-color: #3490dc; /* Color del "thumb" */
+      background-color: #f5f5f5; /* Color del "thumb" */
       border-radius: 10px; /* Esquinas redondeadas */
     }
 
