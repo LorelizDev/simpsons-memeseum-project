@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import CreateMeme from "../pages/CreateMeme";
 import FullGallery from "../pages/FullGallery";
 import Gallery from "../pages/Gallery";
+import EditMeme from "../pages/EditMeme"
+import Instructions from "../pages/Instructions";
 
 export const router = createBrowserRouter([
   {
@@ -19,12 +21,20 @@ export const router = createBrowserRouter([
         element: <CreateMeme />
       },
       {
-        path: 'full-gallery',  // Nueva ruta para la galería
+        path: 'full-gallery',
         element: <FullGallery />
       },
       {
-        path: 'main-gallery',  // Nueva ruta para la galería
+        path: 'main-gallery',
         element: <Gallery />
+      },
+      {
+        path: 'edit/:id',
+        element: <EditMeme />
+      },
+      {
+        path: 'manual-use',
+        element: <Instructions />
       }
     ]
   }
