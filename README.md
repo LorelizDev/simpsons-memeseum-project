@@ -1,4 +1,4 @@
-# <img src="public/favicon.ico" alt="Logo" width="60" style="vertical-align: middle;"/>Simpson's Memeseum
+# <img src="src/assets/images/logo-simpson-removebg.png" alt="Logo" width="60" style="vertical-align: middle;"/>Simpson's Memeseum
 
 Simpson's Memeseum is a CRUD web application that serves as a virtual museum for memes inspired by The Simpsons. Users can browse through the memes, view them in a larger format, and interact with each meme by liking, disliking, editing, or deleting them. The project is built with React, utilizing json-server to simulate a backend for storing meme data. The user can also add new memes through a form, and there is a full CRUD interface allowing updates and deletions.
 
