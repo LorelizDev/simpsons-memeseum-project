@@ -29,22 +29,24 @@ const FullGallery = () => {
 		setShowLargeImage(false);
 	};
 
-  const handleDelete = async (memeId) => {
-    const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este meme?');
-    if (confirmDelete) {
-      try {
-        await deleteMeme(memeId);
-        setData(data.filter((meme) => meme.id !== memeId));
-        alert("El meme ha sido eliminado correctamente");
-        handleClose();
-      } catch (error) {
-        console.error('Error al eliminar el meme:', error);
-        alert('Hubo un error al eliminar el meme. Inténtalo de nuevo.');
-      }
-    } else {
-      console.log('Eliminación cancelada');
-    }
-  };
+	const handleDelete = async (memeId) => {
+		const confirmDelete = window.confirm(
+			"¿Estás seguro de que quieres eliminar este meme?"
+		);
+		if (confirmDelete) {
+			try {
+				await deleteMeme(memeId);
+				setData(data.filter((meme) => meme.id !== memeId));
+				alert("El meme ha sido eliminado correctamente");
+				handleClose();
+			} catch (error) {
+				console.error("Error al eliminar el meme:", error);
+				alert("Hubo un error al eliminar el meme. Inténtalo de nuevo.");
+			}
+		} else {
+			console.log("Eliminación cancelada");
+		}
+	};
 
 	const handleEdit = (memeId) => {
 		console.log("Navigating to edit page");
@@ -79,8 +81,7 @@ const FullGallery = () => {
 				backgroundSize: "cover",
 				backgroundPosition: "left center",
 			}}>
-			<div
-				className="flex flex-wrap gap-4 mt-8 justify-center overflow-y-scroll max-h-[370px] w-full">
+			<div className="flex flex-wrap gap-4 mt-8 justify-center overflow-y-scroll max-h-[370px] w-full">
 				{data.map((meme) => (
 					<div
 						key={meme.id}

@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { getMemes } from '../services/services';
-import initialImage1 from '../assets/images/cuadro1p.png';
-import initialImage2 from '../assets/images/cuadro2p.png';
-import initialImage4 from '../assets/images/cuadro4p.png';
-import initialImage6 from '../assets/images/cuadro6p.png';
-import initialImage7 from '../assets/images/cuadro7p.png';
-import initialImage8 from '../assets/images/cuadro8p.png';
-import initialImage9 from '../assets/images/enter1111.png';
-import meme1 from '../assets/images/meme1.png';
-import meme2 from '../assets/images/meme2.png';
-import meme4 from '../assets/images/meme4.png';
-import meme6 from '../assets/images/meme6.png';
-import meme7 from '../assets/images/meme7.png';
-import meme8 from '../assets/images/meme8.png';
-import S5 from '../assets/images/S5.jpg';
+import React, { useState, useEffect } from "react";
+import { getMemes } from "../services/services";
+import initialImage1 from "../assets/images/cuadro1p.png";
+import initialImage2 from "../assets/images/cuadro2p.png";
+import initialImage4 from "../assets/images/cuadro4p.png";
+import initialImage6 from "../assets/images/cuadro6p.png";
+import initialImage7 from "../assets/images/cuadro7p.png";
+import initialImage8 from "../assets/images/cuadro8p.png";
+import initialImage9 from "../assets/images/enter1111.png";
+import meme1 from "../assets/images/meme1.png";
+import meme2 from "../assets/images/meme2.png";
+import meme4 from "../assets/images/meme4.png";
+import meme6 from "../assets/images/meme6.png";
+import meme7 from "../assets/images/meme7.png";
+import meme8 from "../assets/images/meme8.png";
+import S5 from "../assets/images/S5.jpg";
 
 import MemeView from '../components/MemeView';
 import AudioPlayer from '../components/AudioPlayer';
@@ -22,9 +22,9 @@ import { Link } from 'react-router-dom';
 import './Gallery.css';
 
 const Gallery = () => {
-  const [data, setData] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [showLargeImage, setShowLargeImage] = useState(false);
+	const [data, setData] = useState([]);
+	const [selectedIndex, setSelectedIndex] = useState(null);
+	const [showLargeImage, setShowLargeImage] = useState(false);
 
   const initialImages = [
     { id: '1', image: initialImage1},
@@ -36,48 +36,52 @@ const Gallery = () => {
     { id: '9', image: initialImage9},
   ];
 
-  const mainMemes = [meme1, meme2, meme4, meme6, meme7, meme8];
+	const mainMemes = [meme1, meme2, meme4, meme6, meme7, meme8];
 
-  useEffect(() => {
-    const loadMemes = async () => {
-      const memesData = await getMemes();
-      setData(memesData);
-    };
+	useEffect(() => {
+		const loadMemes = async () => {
+			const memesData = await getMemes();
+			setData(memesData);
+		};
 
-    loadMemes();
-  }, []);
+		loadMemes();
+	}, []);
 
-  const handleClick = (index) => {
-    setSelectedIndex(index);
-    setShowLargeImage(true);
-  };
+	const handleClick = (index) => {
+		setSelectedIndex(index);
+		setShowLargeImage(true);
+	};
 
-  const handleNext = () => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
-  };
+	const handleNext = () => {
+		setSelectedIndex((prevIndex) => (prevIndex + 1) % initialImages.length);
+	};
 
-  const handlePrev = () => {
-    setSelectedIndex((prevIndex) => (prevIndex - 1 + initialImages.length) % initialImages.length);
-  };
+	const handlePrev = () => {
+		setSelectedIndex(
+			(prevIndex) =>
+				(prevIndex - 1 + initialImages.length) % initialImages.length
+		);
+	};
 
-  const handleClose = () => {
-    setShowLargeImage(false);
-    setSelectedIndex(null);
-  };
+	const handleClose = () => {
+		setShowLargeImage(false);
+		setSelectedIndex(null);
+	};
 
-  const currentMeme = selectedIndex !== null ? mainMemes[selectedIndex] : null;
+	const currentMeme =
+		selectedIndex !== null ? mainMemes[selectedIndex] : null;
 
-  return (
-    <div className="relative flex flex-col items-center justify-center max-sm:h-full">
-      <AudioPlayer src={audioFile} />
+	return (
+		<div className="relative flex flex-col items-center justify-center max-sm:h-full">
+			<AudioPlayer src={audioFile} />
 
-      {/* Imagen Principal */}
-      <div className="relative flex justify-center items-center border-white border-2 rounded-lg w-full h-full">
-        <img
-          src={S5}
-          alt="Imagen Principal"
-          className="w-full h-full container"
-        />
+			{/* Imagen Principal */}
+			<div className="relative flex justify-center items-center border-white border-2 rounded-lg w-full h-full">
+				<img
+					src={S5}
+					alt="Imagen Principal"
+					className="w-full h-full container"
+				/>
 
         {/* Cuadros */}
         {initialImages.map((initialImage, index) => (
@@ -105,17 +109,17 @@ const Gallery = () => {
         ))}
       </div>
 
-      {showLargeImage && currentMeme && (
-        <MemeView
-          currentImage={{ image: currentMeme }}
-          handleClose={handleClose}
-          handleNext={handleNext}
-          handlePrev={handlePrev}
-          showIcons={false}
-        />
-      )}
-    </div>
-  );
+			{showLargeImage && currentMeme && (
+				<MemeView
+					currentImage={{ image: currentMeme }}
+					handleClose={handleClose}
+					handleNext={handleNext}
+					handlePrev={handlePrev}
+					showIcons={false}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default Gallery;
