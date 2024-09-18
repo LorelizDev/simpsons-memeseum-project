@@ -1,8 +1,8 @@
-// AudioPlayer.js
 import React, { useRef, useState, useEffect } from "react";
 
 const AudioPlayer = ({ src }) => {
-	const audioRef = useRef(null); // useRef siempre devuelve un objeto con una propiedad llamada 'current'
+	// useRef siempre devuelve un objeto con una propiedad llamada 'current'
+	const audioRef = useRef(null); 
 	const [isPlaying, setIsPlaying] = useState(false);
 
 	useEffect(() => {
@@ -11,7 +11,7 @@ const AudioPlayer = ({ src }) => {
 			audioRef.current.play();
 			setIsPlaying(true);
 		}
-	}, [src]); // Dependencia en 'src' para reproducir cuando cambia el audio
+	}, [src]);
 
 	const togglePlayPause = () => {
 		if (audioRef.current.paused) {
@@ -24,7 +24,7 @@ const AudioPlayer = ({ src }) => {
 	};
 
 	return (
-		<div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-10">
+		<div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
 			<audio ref={audioRef} src={src} loop />
 			<button
 				onClick={togglePlayPause}

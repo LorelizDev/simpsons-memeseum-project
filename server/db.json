@@ -3,56 +3,56 @@
     {
       "id": "1",
       "name": "Meme1",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725886264/cuadro1_jccbdi.png",
-      "like": 0,
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme11_an6ov0.png",
+      "like": 1,
       "dislike": 0
     },
     {
       "id": "2",
       "name": "Meme2",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro2_ifnrux.png",
-      "like": 0,
-      "dislike": 0
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme22_cyefxr.png",
+      "like": 1,
+      "dislike": 1
     },
     {
       "id": "3",
       "name": "Meme3",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro3_n9lclf.png",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726491285/meme33_n992be.jpg",
       "like": 0,
       "dislike": 0
     },
     {
       "id": "4",
       "name": "Meme4",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873557/cuadro4_alitnr.png",
-      "like": 0,
-      "dislike": 0
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme44_dnove9.png",
+      "like": 1,
+      "dislike": 1
     },
     {
       "id": "5",
       "name": "Meme5",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873558/cuadro5_vt70lc.png",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726491328/meme55_jqad5c.png",
       "like": 0,
       "dislike": 0
     },
     {
       "id": "6",
       "name": "Meme6",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro6_vh8ea3.png",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme66_oquhik.png",
       "like": 0,
       "dislike": 0
     },
     {
       "id": "7",
       "name": "Meme7",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873559/cuadro7_imupmf.png",
-      "like": 0,
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme77_hdj2dl.png",
+      "like": 1,
       "dislike": 0
     },
     {
       "id": "8",
       "name": "Meme8",
-      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873555/cuadro8_nk23ai.png",
+      "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726490995/meme88_qjz6rk.png",
       "like": 0,
       "dislike": 0
     },

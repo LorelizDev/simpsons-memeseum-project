@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonImage from "../components/ButtonImage";
-import Preloader from "../components/Preloader";
 import AudioPlayer from "../components/AudioPlayer";
 import audioFile from "../assets/sounds/marge1.mp3";
 import myImage from "../assets/images/manual.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
 
 	const handleButtonClick = () => {
-		setIsLoading(true);
-
-		// Simula un delay para mostrar el preloader
-		setTimeout(() => {
-			navigate("/main-gallery");
-			setIsLoading(false);
-		}, 1000);
-	};
+      navigate('/main-gallery');  
+  };
 
 	return (
 		<div className="relative flex justify-center">
@@ -44,7 +36,7 @@ const Home = () => {
 					className="absolute top-[-4.8%] left-[30%] w-2/5 h-1/6 cursor-pointer transition-transform duration-300 img-bright-yellow"
 				/>
 			</Link>
-			{isLoading && <Preloader />}
+			
 		</div>
 	);
 };
