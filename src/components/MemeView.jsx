@@ -101,7 +101,7 @@ const MemeView = ({
 						<img
 							src={currentImage.image}
 							alt={`Imagen Grande ${currentImage.id}`}
-							className="w-120 h-120 object-cover cursor-pointer"
+							className="w-120 h-120 object-contain cursor-pointer"
 							onClick={handleImageClick}
 						/>
 					) : (

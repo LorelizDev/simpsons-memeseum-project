@@ -75,25 +75,26 @@ const FullGallery = () => {
 
 	return (
 		<div
-			className="flex flex-col h-screen -mx-3 pl-6"
+			className="flex flex-col h-screen max-xs:h-[115vh] -mx-3 pl-6"
 			style={{
 				backgroundImage: `url(${backgroundImage})`,
 				backgroundSize: "cover",
 				backgroundPosition: "left center",
 			}}>
-			<div className="flex flex-wrap gap-4 mt-8 justify-center overflow-y-scroll max-h-[370px] w-full">
+			<div className="flex flex-wrap gap-4 mt-8 justify-center overflow-y-scroll max-h-[450px] w-full">
 				{data.map((meme) => (
 					<div
 						key={meme.id}
-						className="border-4 border-blue-500 shadow-xl p-6 rounded-lg bg-yellow-200 flex flex-col items-center"
-						style={{ width: "150px", height: "175px" }}>
-						<img
-							src={meme.image}
-							alt={meme.name}
-							className="w-full h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-							onClick={() => handleClick(meme)}
-						/>
-						<h3 className="text-center mt-2 text-sm font-bold">
+						className="border-4 border-blue-500 shadow-xl my-2 p-4  rounded-lg bg-yellow-200 flex flex-col justify-between items-center w-[150px] h-[200px] transform transition-transform duration-300 hover:scale-105" >
+						<div className="h-4/5">
+							<img
+								src={meme.image}
+								alt={meme.name}
+								className="h-full object-contain cursor-pointer"
+								onClick={() => handleClick(meme)}
+							/>
+						</div>
+						<h3 className="text-center mt-2 text-lg font-bold font-simpson-p leading-tight">
 							{meme.name}
 						</h3>
 					</div>
