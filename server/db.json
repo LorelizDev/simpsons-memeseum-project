@@ -11,7 +11,7 @@
       "id": "2",
       "name": "Meme2",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873556/cuadro2_ifnrux.png",
-      "like": 0,
+      "like": 1,
       "dislike": 0
     },
     {
@@ -26,7 +26,7 @@
       "name": "Meme4",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1725873557/cuadro4_alitnr.png",
       "like": 0,
-      "dislike": 0
+      "dislike": 1
     },
     {
       "id": "5",

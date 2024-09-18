@@ -68,7 +68,7 @@ const MemeView = ({ currentImage, handleClose, handleNext, handlePrev, handleDel
     setTimeout(() => {
       setIsFlipped(false);
       setResponse(null)
-    }, 2000);
+    }, 1000);
   };
 
   return (

@@ -19,6 +19,7 @@ import MemeView from '../components/MemeView';
 import AudioPlayer from '../components/AudioPlayer';
 import audioFile from '../assets/sounds/SimpsonsIntro_1.mp3';
 import { Link } from 'react-router-dom';
+import './Gallery.css';
 
 const Gallery = () => {
   const [data, setData] = useState([]);
@@ -84,13 +85,7 @@ const Gallery = () => {
             <Link
               key={initialImage.id}
               to="/full-gallery"
-              className="absolute"
-              style={{
-                top: initialImage.top,
-                left: initialImage.left,
-                width: initialImage.width,
-                height: initialImage.height,
-              }}
+              className={`absolute initial-image-${initialImage.id}`}
             >
               <img
                 src={initialImage.image}
@@ -103,15 +98,7 @@ const Gallery = () => {
               key={initialImage.id}
               src={initialImage.image}
               alt={`Cuadro Inicial ${initialImage.id}`}
-              className={`absolute object-contain cursor-pointer transition-transform duration-300 ${
-                initialImage.id === '9' ? '' : 'hover:brightness-110 hover:scale-105'
-              }`}
-              style={{
-                top: initialImage.top,
-                left: initialImage.left,
-                width: initialImage.width,
-                height: initialImage.height,
-              }}
+              className={`absolute object-contain cursor-pointer transition-transform duration-300 initial-image-${initialImage.id} hover:brightness-110 hover:scale-105`}
               onClick={() => handleClick(index)}
             />
           )

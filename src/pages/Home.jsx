@@ -19,7 +19,7 @@ const Home = () => {
     setTimeout(() => {
       navigate('/main-gallery');
       setIsLoading(false);
-    }, 1000);
+    }, 2000);
   };
 
   return (
