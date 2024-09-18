@@ -1,4 +1,4 @@
-# Simpson's Memeseum
+# <img src="public/favicon.ico" alt="Logo" width="60" style="vertical-align: middle;"/>Simpson's Memeseum
 
 Simpson's Memeseum is a CRUD web application that serves as a virtual museum for memes inspired by The Simpsons. Users can browse through the memes, view them in a larger format, and interact with each meme by liking, disliking, editing, or deleting them. The project is built with React, utilizing json-server to simulate a backend for storing meme data. The user can also add new memes through a form, and there is a full CRUD interface allowing updates and deletions.
 
@@ -13,7 +13,7 @@ Simpson's Memeseum is a CRUD web application that serves as a virtual museum for
   </div>
 </div>
 
-## Features
+## ✨ Features
 
 - **Meme Gallery:** The full-gallery page displays all the memes as museum-like picture frames.
 
@@ -33,7 +33,7 @@ Simpson's Memeseum is a CRUD web application that serves as a virtual museum for
 
 - **GitHub Button:** A button in the footer allows users to visit the project's GitHub repository.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -60,16 +60,16 @@ Simpson's Memeseum is a CRUD web application that serves as a virtual museum for
 
 - **Testing Library:** React testing utilities to test the behavior of the app's components.
 
-## Project Setup
+## 🛠️💻 Project Setup
 
-### Prerequisites
+### 📝 Prerequisites
 
 Ensure you have the following installed:
 
 - Node.js (v16+)
 - npm or yarn package manager
 
-### Installation
+### ⚙️ Installation
 
 1. Clone the repository:
 
@@ -103,7 +103,7 @@ npm run dev
 ```
 The app should now be running on http://localhost:5173 or the specified port in your environment.
 
-### Running Tests
+### 🧪 Running Tests
 
 The project includes unit tests for key components using Vitest and @testing-library/react.
 
@@ -113,7 +113,7 @@ To run the tests:
 npm run test
 ```
 
-## File Structure
+## 🗂️ File Structure
 
 Simpson's Memeseum Project Structure:
 
@@ -154,7 +154,7 @@ Simpson's Memeseum Project Structure:
   └── main.jsx               --> Entry point of the React app
 ```
 
-## Team
+## 👥 Team
 
 This project follows SCRUM methodology using Kanban to track progress.
 
@@ -164,7 +164,7 @@ This project follows SCRUM methodology using Kanban to track progress.
 - [**Omar Lengua**](https://github.com/Omarlsant) - Developer
 - [**Violeta Flores**](https://github.com/Violeta-flores) - Developer
 
-## Methodology
+## 📅 Methodology
 
 The team followed SCRUM practices for project management, including:
 
@@ -174,7 +174,7 @@ The team followed SCRUM practices for project management, including:
 
 **Kanban** was used to visually manage the flow of tasks, ensuring that everyone had a clear understanding of what needed to be done, what was in progress, and what was completed.
 
-## Future Improvements:
+## 🚀 Future Improvements:
 
 1. **Pagination or Lazy Loading:**
 
@@ -192,6 +192,6 @@ The team followed SCRUM practices for project management, including:
 
 - Eventually, consider moving from JSON-Server to a more robust backend solution (e.g., Node.js with a database like MongoDB or PostgreSQL) to support real-time updates, user authentication, and data persistence across sessions.
 
-## Contact
+## ✉️ Contact
 
 For any questions or issues, feel free to open an issue or contact any of the team members.
