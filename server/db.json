@@ -12,7 +12,7 @@
       "name": "M*** código",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726683010/w8wjvodht3vc8kkf8sqa.jpg",
       "like": 1,
-      "dislike": 1
+      "dislike": 2
     },
     {
       "id": "3",
@@ -46,7 +46,7 @@
       "id": "7",
       "name": "Full Stack",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726683730/vvvcyerazfggzqbancjn.png",
-      "like": 1,
+      "like": 2,
       "dislike": 0
     },
     {
@@ -54,7 +54,7 @@
       "name": "No hay tiempo para tests",
       "image": "https://res.cloudinary.com/dhbzr2e4h/image/upload/v1726684106/mgwobcf4hzx9vn8bu6wq.png",
       "like": 0,
-      "dislike": 0
+      "dislike": 1
     },
     {
       "id": "9",
